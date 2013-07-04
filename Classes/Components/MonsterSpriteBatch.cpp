@@ -14,6 +14,10 @@ MonsterSpriteBatch* MonsterSpriteBatch::createBatchNodeWithTexture(CCTexture2D* 
 
 #define MOVE_SPEED 1
 
+void MonsterSpriteBatch::removeAirCarrot(CCNode* pSender){
+	pSender->getParent()->removeChild(pSender);
+}
+
 void MonsterSpriteBatch::freshMonster(float dt){
 	int childCount = getChildrenCount();
 	CCArray* children = getChildren();
@@ -31,7 +35,14 @@ void MonsterSpriteBatch::freshMonster(float dt){
 		int currentPointIdx = monsterSpr->currentPointIdx;
 		int nextPointIdx = monsterSpr->nextPointIdx;
 		if(currentPointIdx==(pointCount-2)){
+			CCSprite* air = CCSprite::createWithSpriteFrameName("air01.png");
+			CCAnimate* airAnimate = CCAnimate::create(CCAnimationCache::sharedAnimationCache()->animationByName("air_carrot"));
+			CCCallFuncN* cfn = CCCallFuncN::create(this,callfuncN_selector(MonsterSpriteBatch::removeAirCarrot));
+			CCSequence* airSeq = CCSequence::create(airAnimate,cfn,NULL);
+			air->runAction(airSeq);
+			air->setPosition(monsterSpr->getPosition());
 			monsterSpr->getParent()->removeChild(monsterSpr);
+			sm->cloudBatchNode->addChild(air);
 			continue;
 		}
 

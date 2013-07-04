@@ -8,6 +8,9 @@ class MonsterSpriteBatch:public CCSpriteBatchNode,public CCTargetedTouchDelegate
 public:
 	static MonsterSpriteBatch* createBatchNodeWithTexture(CCTexture2D* texture2D);
 	void freshMonster(float dt);
+	void removeAirCarrot(CCNode* pSender);
+	
+
 };
 
 #endif

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{80d3cd2e-a4c9-49f0-9a08-143fcc697c8f}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{c265749c-8b73-4cb5-81b2-c15cb2976171}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{3e43679b-573b-4ad8-9d6a-032f3b1797f8}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;png;manifest</Extensions>
+    </Filter>
+    <Filter Include="include\managers">
+      <UniqueIdentifier>{317d3247-45d3-4936-bcfb-4cc3ae7f6241}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\components">
+      <UniqueIdentifier>{e58cf7d5-d5fc-4177-8d6a-1e9f72782d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\scenes">
+      <UniqueIdentifier>{f6cc4e53-e91c-4903-bfe4-cfb12767e25b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\models">
+      <UniqueIdentifier>{8701039b-3cfa-494e-bafa-8d5890ec94a2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\LuoBo.ico">
+      <Filter>resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LuoBo.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameMain.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Assets.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VisibleRect.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScenes\HelpScene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScenes\SettingScene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BaseScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Components\GiantPageScrollView.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScenes\AdventureScene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SceneManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScenes\SubThemeScene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScenes\BattleScene.h">
+      <Filter>include\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Components\MapMenu.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ShareManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\TowerInfo.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\manager\AnimateManager.h">
+      <Filter>include\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\RouteInfo.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Carrot.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Components\MonsterBornArrow.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Model\Monster.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\manager\MonsterManager.h">
+      <Filter>include\managers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Components\MonsterSpriteBatch.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameMain.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VisibleRect.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScenes\HelpScene.cpp">
+      <Filter>include\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScenes\SettingScene.cpp">
+      <Filter>include\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BaseScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\GiantPageScrollView.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScenes\AdventureScene.cpp">
+      <Filter>include\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SceneManager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScenes\SubThemeScene.cpp">
+      <Filter>include\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScenes\BattleScene.cpp">
+      <Filter>include\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\MapMenu.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ShareManager.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\TowerInfo.cpp">
+      <Filter>include\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\manager\AnimateManager.cpp">
+      <Filter>include\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\RouteInfo.cpp">
+      <Filter>include\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Carrot.cpp">
+      <Filter>include\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\MonsterBornArrow.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Model\Monster.cpp">
+      <Filter>include\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\manager\MonsterManager.cpp">
+      <Filter>include\managers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\MonsterSpriteBatch.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

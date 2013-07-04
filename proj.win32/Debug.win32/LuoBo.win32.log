@@ -1,0 +1,45 @@
+﻿生成启动时间为 2013/7/3 星期三 23:22:06。
+     1>项目“C:\Users\a\Documents\Visual Studio 2012\Projects\LuoBo\proj.win32\LuoBo.win32.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\extensions" /I. /I..\Classes /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\include" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\kazmath\include" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\win32" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\third_party\win32" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\third_party\win32\OGLES" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\external" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\CocosDenshion\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D STRICT /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS_DEBUG /D COCOS2D_DEBUG=1 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\MainScenes\BattleScene.cpp
+         BattleScene.cpp
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(55): warning C4305: “参数”: 从“double”到“float”截断
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(57): warning C4305: “参数”: 从“double”到“float”截断
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(71): warning C4305: “参数”: 从“double”到“float”截断
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(72): warning C4305: “参数”: 从“double”到“float”截断
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(73): warning C4305: “参数”: 从“double”到“float”截断
+     1>c:\users\a\documents\visual studio 2012\projects\luobo\classes\mainscenes\battlescene.cpp(81): warning C4305: “参数”: 从“double”到“float”截断
+       Link:
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\LuoBo.win32.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\\" libcocos2d.lib opengl32.lib glew32.lib libBox2d.lib libCocosDenshion.lib libExtensions.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\LuoBo.win32.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\LuoBo.win32.lib" /MACHINE:X86 Debug.win32\LuoBo.res
+         Debug.win32\AppDelegate.obj
+         Debug.win32\BaseScene.obj
+         Debug.win32\GiantPageScrollView.obj
+         Debug.win32\MapMenu.obj
+         Debug.win32\MonsterBornArrow.obj
+         Debug.win32\MonsterSpriteBatch.obj
+         Debug.win32\GameMain.obj
+         Debug.win32\AdventureScene.obj
+         Debug.win32\BattleScene.obj
+         Debug.win32\HelpScene.obj
+         Debug.win32\SettingScene.obj
+         Debug.win32\SubThemeScene.obj
+         Debug.win32\AnimateManager.obj
+         Debug.win32\MonsterManager.obj
+         Debug.win32\Carrot.obj
+         Debug.win32\Monster.obj
+         Debug.win32\RouteInfo.obj
+         Debug.win32\TowerInfo.obj
+         Debug.win32\SceneManager.obj
+         Debug.win32\ShareManager.obj
+         Debug.win32\VisibleRect.obj
+         Debug.win32\main.obj
+         "D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\libcocos2d.lib"
+         "D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\libCocosDenshion.lib"
+         "D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\libExtensions.lib"
+         "D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\libBox2D.lib"
+         LuoBo.win32.vcxproj -> D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\Debug.win32\LuoBo.win32.exe
+     1>已完成生成项目“C:\Users\a\Documents\Visual Studio 2012\Projects\LuoBo\proj.win32\LuoBo.win32.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.96

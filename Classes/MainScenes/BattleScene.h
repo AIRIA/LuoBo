@@ -27,6 +27,7 @@ public:
 	void removeTarget(CCObject* pSender,void* obj);
 	void removeStartLayer(CCObject* pSender,void* obj);
 	void initBatchNodeLayers();
+	void startMonsterThread(float dt);
 };
 
 #endif

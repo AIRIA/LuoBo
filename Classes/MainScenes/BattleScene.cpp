@@ -101,6 +101,11 @@ void BattleScene::showTowerLocation(){
 		towerTip->runAction(CCRepeat::create(fadeSeq,1));
 	}
 	addChild(towerLoc);
+	schedule(schedule_selector(BattleScene::startMonsterThread),1.5);
+}
+
+void BattleScene::startMonsterThread(float dt){
+	Monster::createWithMonsterName("fat_green");
 }
 
 void BattleScene::onEnter(){
@@ -337,7 +342,6 @@ void BattleScene::initBatchNodeLayers(){
 	sm->cloudBatchNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName("air01.png")->getTexture());
 	addChild(sm->monsterBatchNode);
 	addChild(sm->cloudBatchNode);
-	Monster::createWithMonsterName("fat_green");
 	sm->getRouteInfo()->retain();
 	CCLog("retainCount%d",sm->getRouteInfo()->retainCount());
 	

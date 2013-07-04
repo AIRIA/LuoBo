@@ -1,4 +1,4 @@
-﻿生成启动时间为 2013/7/3 星期三 23:22:06。
+﻿生成启动时间为 2013/7/4 星期四 20:32:57。
      1>项目“C:\Users\a\Documents\Visual Studio 2012\Projects\LuoBo\proj.win32\LuoBo.win32.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\extensions" /I. /I..\Classes /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\include" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\kazmath\include" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\win32" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\third_party\win32" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\cocos2dx\platform\third_party\win32\OGLES" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\external" /I"D:\Cocos2dx\cocos2d-2.1rc0-x-2.1.2\CocosDenshion\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D STRICT /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS_DEBUG /D COCOS2D_DEBUG=1 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc110.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\MainScenes\BattleScene.cpp
@@ -42,4 +42,4 @@
 
 生成成功。
 
-已用时间 00:00:04.96
+已用时间 00:00:05.15

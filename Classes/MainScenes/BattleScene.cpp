@@ -103,9 +103,16 @@ void BattleScene::showTowerLocation(){
 	addChild(towerLoc);
 	schedule(schedule_selector(BattleScene::startMonsterThread),1.5);
 }
-
+int monsterNum = 0;
 void BattleScene::startMonsterThread(float dt){
-	Monster::createWithMonsterName("fat_green");
+	if(monsterNum<10){
+		monsterNum++;
+		Monster::createWithMonsterName("fat_green");
+	}else{
+		monsterNum = 0;
+		unschedule(schedule_selector(BattleScene::startMonsterThread));
+	}
+	
 }
 
 void BattleScene::onEnter(){

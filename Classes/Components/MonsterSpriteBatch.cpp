@@ -20,6 +20,7 @@ void MonsterSpriteBatch::freshMonster(float dt){
 	CCObject* child = NULL;
 	ShareManager* sm = ShareManager::getInstance();
 	int currentIdx = 0;
+	int pointCount = sm->getRouteInfo()->count();
 	CCARRAY_FOREACH(children,child){
 		
 		if(currentIdx==childCount){
@@ -27,8 +28,15 @@ void MonsterSpriteBatch::freshMonster(float dt){
 		}
 		currentIdx++;
 		Monster* monsterSpr = (Monster*)child;
+		int currentPointIdx = monsterSpr->currentPointIdx;
+		int nextPointIdx = monsterSpr->nextPointIdx;
+		if(currentPointIdx==(pointCount-2)){
+			monsterSpr->getParent()->removeChild(monsterSpr);
+			continue;
+		}
+
 		CCPoint monsterPos = monsterSpr->getPosition();
-		CCLog("Count:%d",sm->getRouteInfo()->count());
+		
 		CCPoint currentPoint = ((RouteInfo*)(sm->getRouteInfo()->objectAtIndex(monsterSpr->currentPointIdx)))->routePoint;
 		CCPoint nextPoint = ((RouteInfo*)(sm->getRouteInfo()->objectAtIndex(monsterSpr->nextPointIdx)))->routePoint;
 		if(nextPoint.x == currentPoint.x){//垂直方向移动

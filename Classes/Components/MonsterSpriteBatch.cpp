@@ -44,6 +44,7 @@ void MonsterSpriteBatch::freshMonster(float dt){
 			air->setPosition(monsterSpr->getPosition());
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->cloudBatchNode->addChild(air);
+			sm->carrot->showHP();
 			continue;
 		}
 

@@ -18,6 +18,7 @@ public:
 	virtual bool init();
 	void doRandomAction(float dt);
 	void resetToOrigin();
+	void showHP();
 };
 
 #endif

@@ -2,6 +2,7 @@
 #define _SHAREMANAGER_H_
 #include "cocos2d.h"
 #include "Components\MonsterSpriteBatch.h"
+#include "Model\Carrot.h"
 
 USING_NS_CC;
 
@@ -18,6 +19,8 @@ public:
 	CCSpriteBatchNode* cloudBatchNode;
 	CCSpriteBatchNode* bulletBatchNode;
 	CCSpriteBatchNode* towerBatchNode;
+	Carrot* carrot;
+	CCSprite* bossHp;
 	
 	CCArray* getRouteInfo();
 	void setRouteInfo(CCArray* routeInfo);

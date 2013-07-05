@@ -1,4 +1,5 @@
 ﻿#include "Carrot.h"
+#include "../ShareManager.h"
 
 #define GET_ANIMATE(name) CCAnimate::create(animationCache->animationByName(#name))
 
@@ -22,10 +23,12 @@ bool Carrot::init(){
 	CCSpawn* spawn = CCSpawn::createWithTwoActions(action1,GET_ANIMATE(carrot_blink));
 	CCSequence* action4 = CCSequence::create(spawn,reset,NULL);
 
+	
+	actions->addObject(action1);
 	actions->addObject(action2);
 	actions->addObject(action3);
-	actions->addObject(action1);
 	actions->addObject(action4);
+
 	actions->retain();
 	schedule(schedule_selector(Carrot::doRandomAction),5);
 	carrot->setAnchorPoint(ccp(0.4,0));
@@ -45,4 +48,19 @@ void Carrot::doRandomAction(float dt){
 void Carrot::resetToOrigin(){
 	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	carrot->setDisplayFrame(frameCache->spriteFrameByName("hlb10.png"));
+}
+int carrotNum = 10;
+//显示萝卜当前剩下的个数
+void Carrot::showHP(){
+	carrotNum--;
+	if(carrotNum==0){
+		//显示失败窗口
+		return;
+	}
+	CCString* bossHpSpr = CCString::createWithFormat("BossHP0%d.png",carrotNum);
+	CCSpriteFrame* targetFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(bossHpSpr->getCString());
+	CCSprite* bossHP = ShareManager::getInstance()->bossHp;
+	bossHP->setDisplayFrame(targetFrame);
+
+	
 }

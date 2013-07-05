@@ -24,6 +24,7 @@ public:
 	
 	CCArray* getRouteInfo();
 	void setRouteInfo(CCArray* routeInfo);
+	void orderRouteInfo();
 };
 
 #endif

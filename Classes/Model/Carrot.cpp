@@ -78,7 +78,7 @@ void Carrot::showHP(){
 	bossHP->setDisplayFrame(targetFrame);
 	CCSpriteFrame* carrotSpr;
 	
-	if(carrotNum!=5&&carrotNum!=7&&carrotNum>6){
+	if(carrotNum!=5&&carrotNum!=7){
 		CCString* carrotStatusName = CCString::createWithFormat("hlb%d.png",carrotNum);
 		carrotSpr = frameCache->spriteFrameByName(carrotStatusName->getCString());
 		carrot->setDisplayFrame(carrotSpr);

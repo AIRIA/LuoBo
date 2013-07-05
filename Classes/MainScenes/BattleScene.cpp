@@ -283,7 +283,8 @@ void BattleScene::loadMap(){
 	addChild(gameMap);
 	towersInfo->retain();
 
-
+	ShareManager::getInstance()->orderRouteInfo();
+	routeInfo = ShareManager::getInstance()->getRouteInfo();
 	//monster born place
 	CCObject* routeObj = NULL;
 	int routeCount = routeInfo->count();

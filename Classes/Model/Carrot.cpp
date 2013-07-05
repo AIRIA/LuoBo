@@ -37,9 +37,11 @@ bool Carrot::init(){
 	CCSize carrotSize = carrot->getContentSize();
 	return true;
 }
-
+int carrotNum = 10;
 void Carrot::doRandomAction(float dt){
+	//CCAssert(ShareManager::getInstance()->carrot!=this,"throw error");
 	srand(time(NULL));
+	int actionsLen = actions->count();
 	int idx = rand()%(actions->count());
 	CCAnimate* selectAction = (CCAnimate*)actions->objectAtIndex(idx);
 	carrot->runAction(selectAction);
@@ -49,18 +51,35 @@ void Carrot::resetToOrigin(){
 	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	carrot->setDisplayFrame(frameCache->spriteFrameByName("hlb10.png"));
 }
-int carrotNum = 10;
+
 //显示萝卜当前剩下的个数
 void Carrot::showHP(){
+	carrot->stopAllActions();
+	if(carrotNum==3){
+		CCLog("stop target Action and schedule");
+		unschedule(schedule_selector(Carrot::doRandomAction));
+	}
+	while(actions->count()>1){
+		actions->removeLastObject();
+		CCLog("remove unused action");
+	}
 	carrotNum--;
 	if(carrotNum==0){
+		carrotNum = 10;
+		ShareManager::getInstance()->bossHp->getParent()->removeChild(ShareManager::getInstance()->bossHp);
 		//显示失败窗口
 		return;
 	}
 	CCString* bossHpSpr = CCString::createWithFormat("BossHP0%d.png",carrotNum);
-	CCSpriteFrame* targetFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(bossHpSpr->getCString());
+	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
+	CCSpriteFrame* targetFrame = frameCache->spriteFrameByName(bossHpSpr->getCString());
 	CCSprite* bossHP = ShareManager::getInstance()->bossHp;
 	bossHP->setDisplayFrame(targetFrame);
-
+	CCSpriteFrame* carrotSpr;
 	
+	if(carrotNum!=5&&carrotNum!=7){
+		CCString* carrotStatusName = CCString::createWithFormat("hlb%d.png",carrotNum);
+		carrotSpr = frameCache->spriteFrameByName(carrotStatusName->getCString());
+		carrot->setDisplayFrame(carrotSpr);
+	}
 }

@@ -4,6 +4,7 @@
 #define GET_ANIMATE(name) CCAnimate::create(animationCache->animationByName(#name))
 
 bool Carrot::init(){
+	carrotNum = 10;
 	actions = CCArray::create();
 	carrot = CCSprite::createWithSpriteFrameName("hlb10.png");
 	carrotShade = CCSprite::createWithSpriteFrameName("hlb0.png");
@@ -37,12 +38,12 @@ bool Carrot::init(){
 	CCSize carrotSize = carrot->getContentSize();
 	return true;
 }
-int carrotNum = 10;
+
 void Carrot::doRandomAction(float dt){
 	//CCAssert(ShareManager::getInstance()->carrot!=this,"throw error");
 	srand(time(NULL));
-	int actionsLen = actions->count();
-	int idx = rand()%(actions->count());
+	int actionsLen = ShareManager::getInstance()->carrot->actions->count();
+	int idx = rand()%actionsLen;
 	CCAnimate* selectAction = (CCAnimate*)actions->objectAtIndex(idx);
 	carrot->runAction(selectAction);
 }
@@ -77,7 +78,7 @@ void Carrot::showHP(){
 	bossHP->setDisplayFrame(targetFrame);
 	CCSpriteFrame* carrotSpr;
 	
-	if(carrotNum!=5&&carrotNum!=7){
+	if(carrotNum!=5&&carrotNum!=7&&carrotNum>6){
 		CCString* carrotStatusName = CCString::createWithFormat("hlb%d.png",carrotNum);
 		carrotSpr = frameCache->spriteFrameByName(carrotStatusName->getCString());
 		carrot->setDisplayFrame(carrotSpr);

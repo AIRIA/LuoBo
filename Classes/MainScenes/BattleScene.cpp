@@ -303,11 +303,10 @@ void BattleScene::loadMap(){
 			
 			
 		}else if(currentRI->pointName == lastCountPtName->getCString()){
-			Carrot* carrotBoss = Carrot::create();
-			ShareManager::getInstance()->carrot = carrotBoss;
-			carrotBoss->ignoreAnchorPointForPosition(false);
-			carrotBoss->setPosition(currentRI->routePoint);
-			addChild(carrotBoss);
+			ShareManager::getInstance()->carrot = Carrot::create();
+			ShareManager::getInstance()->carrot->ignoreAnchorPointForPosition(false);
+			ShareManager::getInstance()->carrot->setPosition(currentRI->routePoint);
+			addChild(ShareManager::getInstance()->carrot);
 		}else if(currentRI->pointName == numPoint->getCString()){
 			CCSprite* bossHp = SPRITE(BossHP10.png);
 			ShareManager::getInstance()->bossHp = bossHp;

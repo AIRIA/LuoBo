@@ -8,6 +8,7 @@ USING_NS_CC;
 class Carrot:public CCNode{
 
 public:
+	int carrotNum;
 	CCArray* actions;
 	CCSprite* carrot;
 	CCSprite* carrotShade;

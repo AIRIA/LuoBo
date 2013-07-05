@@ -40,6 +40,7 @@ void MonsterSpriteBatch::freshMonster(float dt){
 			CCCallFuncN* cfn = CCCallFuncN::create(this,callfuncN_selector(MonsterSpriteBatch::removeAirCarrot));
 			CCSequence* airSeq = CCSequence::create(airAnimate,cfn,NULL);
 			air->runAction(airSeq);
+			air->setAnchorPoint(ccp(0.5,0.25));
 			air->setPosition(monsterSpr->getPosition());
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->cloudBatchNode->addChild(air);

@@ -11,4 +11,6 @@
 *.lai
 *.la
 *.a
+# resources files
 Resources/
+proj.win32/Debug.win32

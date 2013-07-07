@@ -90,15 +90,14 @@ void BattleScene::showTowerLocation(){
 	CCARRAY_FOREACH(towersInfo,towerObj){
 		TowerInfo* towerInfo = (TowerInfo*)towerObj;
 		CCSprite* towerTip = SPRITE(select_00.png);
-		towerTip->setColor(ccWHITE);
+		towerTip->setColor(ccBLUE);
 		towerTip->setPosition(towerInfo->location);
 		towerTip->setBlendFunc(cbl);
-		CCTintTo* tt = CCTintTo::create(0.001,255,0,0);
 		towerLoc->addChild(towerTip);
 		CCActionInterval* delay = CCDelayTime::create(0.5);
 		CCActionInterval* fadeOut = CCFadeOut::create(0.5);
 		CCActionInterval* fadeIn = CCFadeIn::create(0.5);
-		CCSequence* fadeSeq = CCSequence::create(delay,tt,fadeOut->copy(),fadeIn,fadeOut,NULL);
+		CCSequence* fadeSeq = CCSequence::create(delay,fadeOut->copy(),fadeIn,fadeOut,NULL);
 		towerTip->runAction(CCRepeat::create(fadeSeq,1));
 	}
 	addChild(towerLoc);
@@ -195,14 +194,7 @@ void BattleScene::setControlMenu(){
 
 //设置tower所在的层
 void BattleScene::setTowerLayer(){
-	CCLayer* towerLayer = CCLayer::create();
-	addChild(towerLayer);
-	CCSprite* addTowerSpr = SPRITE(select_00.png);
-	addTowerSpr->setPosition(VisibleRect::center());
-	towerLayer->addChild(addTowerSpr);
-	CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName("addTower");
-	CCAnimate* animate = CCAnimate::create(animation);
-	addTowerSpr->runAction(CCRepeatForever::create(animate));
+	
 }
 
 void BattleScene::cutSpeed(CCObject* pSender){
@@ -353,8 +345,10 @@ void BattleScene::initBatchNodeLayers(){
 	//sm->bulletBatchNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName());
 	sm->monsterBatchNode = MonsterSpriteBatch::createBatchNodeWithTexture(frameCache->spriteFrameByName("fly_blue01.png")->getTexture());
 	sm->cloudBatchNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName("air01.png")->getTexture());
+	sm->towerLayer = TowerLayer::create();
 	addChild(sm->monsterBatchNode);
 	addChild(sm->cloudBatchNode);
+	addChild(sm->towerLayer);
 	sm->getRouteInfo()->retain();
 	CCLog("retainCount%d",sm->getRouteInfo()->retainCount());
 	

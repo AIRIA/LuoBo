@@ -109,6 +109,9 @@
     <ClInclude Include="..\Classes\Components\MonsterSpriteBatch.h">
       <Filter>include\components</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Components\TowerLayer.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -175,6 +178,9 @@
       <Filter>include\managers</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Components\MonsterSpriteBatch.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\TowerLayer.cpp">
       <Filter>include\components</Filter>
     </ClCompile>
   </ItemGroup>

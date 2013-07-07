@@ -3,6 +3,7 @@
 #include "cocos2d.h"
 #include "Components\MonsterSpriteBatch.h"
 #include "Model\Carrot.h"
+#include "Components\TowerLayer.h"
 
 USING_NS_CC;
 
@@ -18,7 +19,7 @@ public:
 	MonsterSpriteBatch* monsterBatchNode;
 	CCSpriteBatchNode* cloudBatchNode;
 	CCSpriteBatchNode* bulletBatchNode;
-	CCSpriteBatchNode* towerBatchNode;
+	TowerLayer* towerLayer;
 	Carrot* carrot;
 	CCSprite* bossHp;
 	

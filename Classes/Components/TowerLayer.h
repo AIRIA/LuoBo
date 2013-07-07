@@ -5,6 +5,9 @@
 USING_NS_CC;
 class TowerLayer:public CCLayer{
 public:
+	CCMenu* towerMenu;
+public:
+	virtual void onEnter();
 	virtual void registerWithTouchDispatcher();
 	virtual bool init();
 	CREATE_FUNC(TowerLayer);
@@ -13,6 +16,9 @@ public:
 	virtual void ccTouchEnded(CCTouch* touch,CCEvent* event);
 	CCPoint convertToTouchInfo(CCTouch* touch);
 	void addTower(CCPoint &point);
+
+	void showTowerMenu(CCPoint &point);
+	void hideTowerMenu();
 };
 
 #endif

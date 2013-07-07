@@ -93,11 +93,12 @@ void BattleScene::showTowerLocation(){
 		towerTip->setColor(ccWHITE);
 		towerTip->setPosition(towerInfo->location);
 		towerTip->setBlendFunc(cbl);
+		CCTintTo* tt = CCTintTo::create(0.001,255,0,0);
 		towerLoc->addChild(towerTip);
 		CCActionInterval* delay = CCDelayTime::create(0.5);
 		CCActionInterval* fadeOut = CCFadeOut::create(0.5);
 		CCActionInterval* fadeIn = CCFadeIn::create(0.5);
-		CCSequence* fadeSeq = CCSequence::create(delay,fadeOut->copy(),fadeIn,fadeOut,NULL);
+		CCSequence* fadeSeq = CCSequence::create(delay,tt,fadeOut->copy(),fadeIn,fadeOut,NULL);
 		towerTip->runAction(CCRepeat::create(fadeSeq,1));
 	}
 	addChild(towerLoc);
@@ -140,6 +141,8 @@ bool BattleScene::init(){
 	frameCache->addSpriteFramesWithFile("Themes/scene/gamemenu-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/Items/Items02-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/Items/Items01-hd.plist");
+	frameCache->addSpriteFramesWithFile("Themes/scene/darkbg-hd.plist");
+	frameCache->addSpriteFramesWithFile("Themes/scene/weibo-hd.plist");
 	frameCache->addSpriteFramesWithFile(route->getCString());
 	loadMap();
 	initAnimations();

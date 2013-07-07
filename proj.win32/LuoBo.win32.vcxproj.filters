@@ -112,6 +112,9 @@
     <ClInclude Include="..\Classes\Components\TowerLayer.h">
       <Filter>include\components</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Components\ForbiddenSprite.h">
+      <Filter>include\models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -182,6 +185,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Components\TowerLayer.cpp">
       <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\ForbiddenSprite.cpp">
+      <Filter>include\models</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

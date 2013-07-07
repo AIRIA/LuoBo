@@ -12,6 +12,7 @@ public:
 	virtual void ccTouchMoved(CCTouch* touch,CCEvent* event);
 	virtual void ccTouchEnded(CCTouch* touch,CCEvent* event);
 	CCPoint convertToTouchInfo(CCTouch* touch);
+	void addTower(CCPoint &point);
 };
 
 #endif

@@ -127,6 +127,7 @@
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\Assets.h" />
     <ClInclude Include="..\Classes\BaseScene.h" />
+    <ClInclude Include="..\Classes\Components\ForbiddenSprite.h" />
     <ClInclude Include="..\Classes\Components\GiantPageScrollView.h" />
     <ClInclude Include="..\Classes\Components\MapMenu.h" />
     <ClInclude Include="..\Classes\Components\MonsterBornArrow.h" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BaseScene.cpp" />
+    <ClCompile Include="..\Classes\Components\ForbiddenSprite.cpp" />
     <ClCompile Include="..\Classes\Components\GiantPageScrollView.cpp" />
     <ClCompile Include="..\Classes\Components\MapMenu.cpp" />
     <ClCompile Include="..\Classes\Components\MonsterBornArrow.cpp" />

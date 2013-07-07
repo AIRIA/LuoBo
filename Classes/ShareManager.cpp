@@ -1,5 +1,6 @@
 ﻿#include "ShareManager.h"
 #include "Model\RouteInfo.h"
+#include "Model\TowerInfo.h"
 
 ShareManager* ShareManager::_instance = 0;
 
@@ -36,4 +37,24 @@ void ShareManager::orderRouteInfo(){
 	}
 	routes->retain();
 	ShareManager::getInstance()->setRouteInfo(routes);
+}
+
+void ShareManager::setTowersInfo(CCArray* towersInfo){
+	this->towerInfo = towersInfo;
+}
+
+CCArray* ShareManager::getTowersInfo(){
+	return this->towerInfo;
+}
+
+bool ShareManager::containTouchPoint(CCPoint &touchPoint){
+	CCObject* obj = NULL;
+	CCARRAY_FOREACH(towerInfo,obj){
+		TowerInfo* ti = (TowerInfo*)obj;
+		CCPoint location = ti->location;
+		if(location.x == touchPoint.x && location.y == touchPoint.y){
+			return true;
+		}
+	}
+	return false;
 }

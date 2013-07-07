@@ -277,7 +277,7 @@ void BattleScene::loadMap(){
 	}
 	addChild(gameMap);
 	towersInfo->retain();
-
+	ShareManager::getInstance()->setTowersInfo(towersInfo);
 	ShareManager::getInstance()->orderRouteInfo();
 	routeInfo = ShareManager::getInstance()->getRouteInfo();
 	//monster born place

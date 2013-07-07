@@ -11,6 +11,7 @@ class ShareManager{
 protected:
 	static ShareManager* _instance;
 	CCArray* routeInfo;
+	CCArray* towerInfo;
 public:
 	int currentThemeId;
 	int mapId;
@@ -24,8 +25,11 @@ public:
 	CCSprite* bossHp;
 	
 	CCArray* getRouteInfo();
+	void setTowersInfo(CCArray* towersInfo);
+	CCArray* getTowersInfo();
 	void setRouteInfo(CCArray* routeInfo);
 	void orderRouteInfo();
+	bool containTouchPoint(CCPoint &point);
 };
 
 #endif

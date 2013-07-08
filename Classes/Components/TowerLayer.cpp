@@ -3,25 +3,45 @@
 #include "../VisibleRect.h"
 #include "../ShareManager.h"
 
+void TowerLayer::showTowerMenu(CCPoint &point){
+	CCActionInterval* scaleIn = CCScaleTo::create(0.3,1);
+	CCObject* item = NULL;
+	CCArray* items = towerMenu->getChildren();
+	CCARRAY_FOREACH(items,item){
+		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
+		mis->runAction((CCActionInterval*)scaleIn->copy());
+	}
+	CCSize size = towerMenu->getContentSize();
+	addChild(towerMenu);
+}
+
 void TowerLayer::onEnter(){
-	string monsterName[] = {"Bottle","Fan","Shit"};
+	string towerName[] = {"Bottle","Fan","Shit"};
 	towerMenu = CCMenu::create();
+	towerMenu->ignoreAnchorPointForPosition(true);
 	//在这里加载炮塔信息
 	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	string itemName;
 	for(int i=0;i<3;i++){
-		itemName = monsterName[i]+"01.png";
-		monsterName[i] = "T"+monsterName[i]+"-hd.plist";
-		monsterName[i] = "Themes/Towers/"+monsterName[i];
-		frameCache->addSpriteFramesWithFile(monsterName[i].c_str());
+		itemName = towerName[i]+"01.png";
+		towerName[i] = "T"+towerName[i]+"-hd.plist";
+		towerName[i] = "Themes/Towers/"+towerName[i];
+		frameCache->addSpriteFramesWithFile(towerName[i].c_str());
 		CCMenuItemSprite* towerItem = CCMenuItemSprite::create(CCSprite::createWithSpriteFrameName(itemName.c_str()),
 			CCSprite::createWithSpriteFrameName(itemName.c_str()));
+		towerItem->setScale(1);
 		towerMenu->addChild(towerItem);
-		//towerItem->setScale(0);
 	}
 	towerMenu->alignItemsHorizontallyWithPadding(0);
 	towerMenu->retain();
+	towerMenu->setContentSize(CCSizeMake(240,80));
 	addChild(towerMenu);
+	CCObject* item = NULL;
+	CCArray* items = towerMenu->getChildren();
+	CCARRAY_FOREACH(items,item){
+		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
+		mis->setScale(0);
+	}
 	CCLayer::onEnter();
 }
 
@@ -72,6 +92,7 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 		CCActionInterval* fadeOut = CCFadeOut::create(0.5);
 		forbidden->runAction(fadeOut);
 		addChild(forbidden);
+		//hideTowerMenu();
 	}
 	
 	return true;
@@ -89,25 +110,14 @@ void TowerLayer::ccTouchMoved(CCTouch* touch,CCEvent* event){
 
 }
 
-void TowerLayer::showTowerMenu(CCPoint &point){
-	CCActionInterval* scaleIn = CCScaleTo::create(0.5,1);
+
+void TowerLayer::hideTowerMenu(){
+	CCActionInterval* scaleIn = CCScaleTo::create(0.5,0);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();
 	CCARRAY_FOREACH(items,item){
 		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
-		mis->runAction(scaleIn);
+		mis->runAction((CCActionInterval*)scaleIn->copy());
 	}
 	CCSize size = towerMenu->getContentSize();
-	int x,y ;
-	if(size.width>point.x){
-		x = (size.width-point.x);
-	}else{
-		x = point.x;
-	}
-	addChild(towerMenu);
-	
-}
-
-void TowerLayer::hideTowerMenu(){
-
 }

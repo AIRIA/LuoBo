@@ -25,6 +25,9 @@
     <Filter Include="include\models">
       <UniqueIdentifier>{8701039b-3cfa-494e-bafa-8d5890ec94a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\towers">
+      <UniqueIdentifier>{d83f84cc-6679-40ba-8b9d-500513b8d625}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\LuoBo.ico">
@@ -121,6 +124,9 @@
     <ClInclude Include="..\Classes\Model\AddTowerSprite.h">
       <Filter>include\models</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\towers\Gun.h">
+      <Filter>include\towers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -200,6 +206,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Model\AddTowerSprite.cpp">
       <Filter>include\models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\towers\Gun.cpp">
+      <Filter>include\towers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

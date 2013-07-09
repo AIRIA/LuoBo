@@ -202,6 +202,7 @@ void BattleScene::cutSpeed(CCObject* pSender){
 }
 
 void BattleScene::loadMap(){
+	
 	towersInfo = CCArray::create();
 	routeInfo = CCArray::create();
 	ShareManager::getInstance()->setRouteInfo(routeInfo);
@@ -226,11 +227,14 @@ void BattleScene::loadMap(){
 	CCSprite* routeSpr = SPRITE(Path.png);
 	routeSpr->setPosition(VisibleRect::center());
 	addChild(routeSpr);
-
+	
 	CCString* items = CCString::createWithFormat("Themes/Theme%d/Items/Object0%d-hd.plist",themeId,type);
 	CCString* monster = CCString::createWithFormat("Themes/Theme%d/Items/Monsters0%d-hd.plist",themeId,type);
+	
 	frameCache->addSpriteFramesWithFile(items->getCString());
 	frameCache->addSpriteFramesWithFile(monster->getCString());
+	CCSpriteBatchNode* cloudSpriteBatch = CCSpriteBatchNode::createWithTexture(SPRITE(cloud01.png)->getTexture());
+	addChild(cloudSpriteBatch);
 	//analyse objgroup to get detail info and set items and tower placeholder
 	CCTMXObjectGroup* objGroup = gameMap->objectGroupNamed("PATH");
 	CCDictionary* dicInfo = NULL;
@@ -254,7 +258,7 @@ void BattleScene::loadMap(){
 			std::string sprName = "cloud0"+spr+".png";
 			CCSprite* sprItem = CCSprite::createWithSpriteFrameName(sprName.c_str());
 			sprItem->setPosition(ccp(x+width/2,y+height/2));
-			addChild(sprItem);
+			cloudSpriteBatch->addChild(sprItem);
 		}else if(objName[0] == 'O'){//load tower place infomation
 			int col = width/blockSize;
 			int row = height/blockSize;

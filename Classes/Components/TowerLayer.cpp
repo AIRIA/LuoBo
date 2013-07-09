@@ -6,18 +6,37 @@
   缩放效果的时间
 */
 #define EFF_TIME 0.3
+#define TOWER_SIZE 80
 
 void TowerLayer::showTowerMenu(CCPoint &point){
+	addChild(towerMenu);
 	CCActionInterval* scaleIn = CCScaleTo::create(EFF_TIME,1);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();
+	int childCount = towerMenu->getChildrenCount();
+	CCSize size = CCSizeMake(childCount*TOWER_SIZE,TOWER_SIZE);
+	int tx,ty;
+	if(point.x==(TOWER_SIZE/2)){
+		tx = size.width/2 + TOWER_SIZE/2;
+	}else if(point.x==(VisibleRect::right().x-TOWER_SIZE/2)){
+		tx = VisibleRect::right().x - size.width/2 - TOWER_SIZE/2;	
+	}else{
+		tx = point.x;
+	}
+
+	if(point.y/TOWER_SIZE <4){
+		ty = point.y+TOWER_SIZE;
+	}else{
+		ty = point.y-TOWER_SIZE;
+	}
+	towerMenu->setPosition(ccp(tx,ty));
+
 	CCARRAY_FOREACH(items,item){
 		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
 		mis->setScale(0);
 		mis->runAction((CCActionInterval*)scaleIn->copy());
 	}
-	CCSize size = towerMenu->getContentSize();
-	addChild(towerMenu);
+	
 }
 
 void TowerLayer::onEnter(){
@@ -39,8 +58,7 @@ void TowerLayer::onEnter(){
 	towerMenu->alignItemsHorizontallyWithPadding(0);
 	towerMenu->retain();
 	towerMenu->setContentSize(CCSizeMake(240,80));
-	addChild(towerMenu);
-	
+	CCSize size = towerMenu->getContentSize();
 	CCLayer::onEnter();
 }
 
@@ -53,7 +71,6 @@ bool TowerLayer::init(){
 	do{
 		CC_BREAK_IF(!CCLayer::init());
 		setTouchEnabled(true);
-		
 	}while(0);
 	return true;
 }

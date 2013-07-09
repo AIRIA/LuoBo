@@ -9,7 +9,7 @@ AddTowerSprite* AddTowerSprite::createATSWithSpriteFrameName(const char* name){
 }
 
 bool AddTowerSprite::ccTouchBegan(CCTouch* touch,CCEvent* event){
-	(beganTarget->*beganSelector)(this);
+	//(beganTarget->*beganSelector)(this);
 	this->getParent()->removeChild(this);
 	return false;
 }

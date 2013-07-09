@@ -11,6 +11,7 @@
 #define TOWER_SIZE 80
 
 void TowerLayer::showTowerMenu(CCPoint &point){
+	isShow = true;
 	if(towerMenu->isRunning()==false){
 		addChild(towerMenu);
 	}
@@ -45,6 +46,7 @@ void TowerLayer::showTowerMenu(CCPoint &point){
 }
 
 void TowerLayer::onEnter(){
+	isShow = false;
 	string towerName[] = {"Bottle","Fan","Shit"};
 	towerMenu = CCMenu::create();
 	towerMenu->ignoreAnchorPointForPosition(true);
@@ -97,10 +99,14 @@ CCPoint TowerLayer::convertToTouchInfo(CCTouch* touch){
 }
 
 bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
+	if(isShow){
+		hideTowerMenu();
+		return false;
+	}
 	CCPoint touchPoint = convertToTouchInfo(touch);
 	if(ShareManager::getInstance()->containTouchPoint(touchPoint)){
 		AddTowerSprite* addTowerSpr = AddTowerSprite::createATSWithSpriteFrameName("select_00.png");//SPRITE(select_00.png);
-		addTowerSpr->setTargetBegan(this,menu_selector(TowerLayer::hideTowerMenu));
+		//addTowerSpr->setTargetBegan(this,menu_selector(TowerLayer::hideTowerMenu));
 		addTowerSpr->setPosition(touchPoint);
 		addChild(addTowerSpr);
 		CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName("addTower");
@@ -133,6 +139,7 @@ void TowerLayer::ccTouchMoved(CCTouch* touch,CCEvent* event){
 
 
 void TowerLayer::hideTowerMenu(CCObject* pSender){
+	isShow = false;
 	CCActionInterval* scaleIn = CCScaleTo::create(0.3,0);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();

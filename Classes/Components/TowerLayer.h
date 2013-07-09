@@ -6,6 +6,7 @@ USING_NS_CC;
 class TowerLayer:public CCLayer{
 public:
 	CCMenu* towerMenu;
+	bool isShow;
 public:
 	virtual void onEnter();
 	virtual void registerWithTouchDispatcher();
@@ -18,7 +19,7 @@ public:
 	void addTower(CCPoint &point);
 
 	void showTowerMenu(CCPoint &point);
-	void hideTowerMenu();
+	void hideTowerMenu(CCObject* pSender=NULL);
 };
 
 #endif

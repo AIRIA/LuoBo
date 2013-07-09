@@ -57,12 +57,10 @@ void Carrot::resetToOrigin(){
 void Carrot::showHP(){
 	carrot->stopAllActions();
 	if(carrotNum==3){
-		CCLog("stop target Action and schedule");
 		unschedule(schedule_selector(Carrot::doRandomAction));
 	}
 	while(actions->count()>1){
 		actions->removeLastObject();
-		CCLog("remove unused action");
 	}
 	carrotNum--;
 	if(carrotNum==0){

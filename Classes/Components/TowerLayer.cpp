@@ -2,6 +2,8 @@
 #include "../Assets.h"
 #include "../VisibleRect.h"
 #include "../ShareManager.h"
+#include "../Model/AddTowerSprite.h"
+
 /**
   缩放效果的时间
 */
@@ -9,7 +11,10 @@
 #define TOWER_SIZE 80
 
 void TowerLayer::showTowerMenu(CCPoint &point){
-	addChild(towerMenu);
+	if(towerMenu->isRunning()==false){
+		addChild(towerMenu);
+	}
+	
 	CCActionInterval* scaleIn = CCScaleTo::create(EFF_TIME,1);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();
@@ -64,7 +69,7 @@ void TowerLayer::onEnter(){
 
 
 void TowerLayer::registerWithTouchDispatcher(){
-	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,false);
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,1,true);
 }
 
 bool TowerLayer::init(){
@@ -92,11 +97,10 @@ CCPoint TowerLayer::convertToTouchInfo(CCTouch* touch){
 }
 
 bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
-	
 	CCPoint touchPoint = convertToTouchInfo(touch);
 	if(ShareManager::getInstance()->containTouchPoint(touchPoint)){
-		removeAllChildren();
-		CCSprite* addTowerSpr = SPRITE(select_00.png);
+		AddTowerSprite* addTowerSpr = AddTowerSprite::createATSWithSpriteFrameName("select_00.png");//SPRITE(select_00.png);
+		addTowerSpr->setTargetBegan(this,menu_selector(TowerLayer::hideTowerMenu));
 		addTowerSpr->setPosition(touchPoint);
 		addChild(addTowerSpr);
 		CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName("addTower");
@@ -128,7 +132,7 @@ void TowerLayer::ccTouchMoved(CCTouch* touch,CCEvent* event){
 }
 
 
-void TowerLayer::hideTowerMenu(){
+void TowerLayer::hideTowerMenu(CCObject* pSender){
 	CCActionInterval* scaleIn = CCScaleTo::create(0.3,0);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();

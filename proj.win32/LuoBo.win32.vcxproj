@@ -129,6 +129,7 @@
     <ClInclude Include="..\Classes\BaseScene.h" />
     <ClInclude Include="..\Classes\Components\ForbiddenSprite.h" />
     <ClInclude Include="..\Classes\Components\GiantPageScrollView.h" />
+    <ClInclude Include="..\Classes\Components\GiantSprite.h" />
     <ClInclude Include="..\Classes\Components\MapMenu.h" />
     <ClInclude Include="..\Classes\Components\MonsterBornArrow.h" />
     <ClInclude Include="..\Classes\Components\MonsterSpriteBatch.h" />
@@ -141,6 +142,7 @@
     <ClInclude Include="..\Classes\MainScenes\SubThemeScene.h" />
     <ClInclude Include="..\Classes\manager\AnimateManager.h" />
     <ClInclude Include="..\Classes\manager\MonsterManager.h" />
+    <ClInclude Include="..\Classes\Model\AddTowerSprite.h" />
     <ClInclude Include="..\Classes\Model\Carrot.h" />
     <ClInclude Include="..\Classes\Model\Monster.h" />
     <ClInclude Include="..\Classes\Model\RouteInfo.h" />
@@ -156,6 +158,7 @@
     <ClCompile Include="..\Classes\BaseScene.cpp" />
     <ClCompile Include="..\Classes\Components\ForbiddenSprite.cpp" />
     <ClCompile Include="..\Classes\Components\GiantPageScrollView.cpp" />
+    <ClCompile Include="..\Classes\Components\GiantSprite.cpp" />
     <ClCompile Include="..\Classes\Components\MapMenu.cpp" />
     <ClCompile Include="..\Classes\Components\MonsterBornArrow.cpp" />
     <ClCompile Include="..\Classes\Components\MonsterSpriteBatch.cpp" />
@@ -168,6 +171,7 @@
     <ClCompile Include="..\Classes\MainScenes\SubThemeScene.cpp" />
     <ClCompile Include="..\Classes\manager\AnimateManager.cpp" />
     <ClCompile Include="..\Classes\manager\MonsterManager.cpp" />
+    <ClCompile Include="..\Classes\Model\AddTowerSprite.cpp" />
     <ClCompile Include="..\Classes\Model\Carrot.cpp" />
     <ClCompile Include="..\Classes\Model\Monster.cpp" />
     <ClCompile Include="..\Classes\Model\RouteInfo.cpp" />

@@ -28,7 +28,6 @@ void ShareManager::orderRouteInfo(){
 		for(int j=0;j<routeInfo->count();j++){
 			RouteInfo* ri = (RouteInfo*)routeInfo->objectAtIndex(j);
 			if(ri->pointName==targetPTName->getCString()){
-				CCLog(ri->pointName.c_str());
 				routeInfo->fastRemoveObjectAtIndex(j);
 				routes->addObject(ri);
 				break;

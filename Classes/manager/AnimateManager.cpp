@@ -25,7 +25,6 @@ void AnimateManager::createAnimation(const char* animateName,string prevStr,int 
 		CCString* sprName = CCString::createWithFormat(format.c_str(),i);
 		CCSpriteFrame* spriteFrame = frameCache->spriteFrameByName(sprName->getCString());
 		frames->addObject(spriteFrame);
-		CCLog(sprName->getCString());
 	}
 	CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames,1.0/fps);
 	animationCache->addAnimation(animation,animateName);

@@ -2,13 +2,18 @@
 #include "../Assets.h"
 #include "../VisibleRect.h"
 #include "../ShareManager.h"
+/**
+  缩放效果的时间
+*/
+#define EFF_TIME 0.3
 
 void TowerLayer::showTowerMenu(CCPoint &point){
-	CCActionInterval* scaleIn = CCScaleTo::create(0.3,1);
+	CCActionInterval* scaleIn = CCScaleTo::create(EFF_TIME,1);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();
 	CCARRAY_FOREACH(items,item){
 		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
+		mis->setScale(0);
 		mis->runAction((CCActionInterval*)scaleIn->copy());
 	}
 	CCSize size = towerMenu->getContentSize();
@@ -29,19 +34,13 @@ void TowerLayer::onEnter(){
 		frameCache->addSpriteFramesWithFile(towerName[i].c_str());
 		CCMenuItemSprite* towerItem = CCMenuItemSprite::create(CCSprite::createWithSpriteFrameName(itemName.c_str()),
 			CCSprite::createWithSpriteFrameName(itemName.c_str()));
-		towerItem->setScale(1);
 		towerMenu->addChild(towerItem);
 	}
 	towerMenu->alignItemsHorizontallyWithPadding(0);
 	towerMenu->retain();
 	towerMenu->setContentSize(CCSizeMake(240,80));
 	addChild(towerMenu);
-	CCObject* item = NULL;
-	CCArray* items = towerMenu->getChildren();
-	CCARRAY_FOREACH(items,item){
-		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
-		mis->setScale(0);
-	}
+	
 	CCLayer::onEnter();
 }
 
@@ -76,9 +75,10 @@ CCPoint TowerLayer::convertToTouchInfo(CCTouch* touch){
 }
 
 bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
-	removeAllChildren();
+	
 	CCPoint touchPoint = convertToTouchInfo(touch);
 	if(ShareManager::getInstance()->containTouchPoint(touchPoint)){
+		removeAllChildren();
 		CCSprite* addTowerSpr = SPRITE(select_00.png);
 		addTowerSpr->setPosition(touchPoint);
 		addChild(addTowerSpr);
@@ -89,10 +89,10 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 	}else{
 		CCSprite* forbidden = SPRITE(Fan01.png);
 		forbidden->setPosition(touchPoint);
-		CCActionInterval* fadeOut = CCFadeOut::create(0.5);
+		CCActionInterval* fadeOut = CCFadeOut::create(EFF_TIME);
 		forbidden->runAction(fadeOut);
 		addChild(forbidden);
-		//hideTowerMenu();
+		hideTowerMenu();
 	}
 	
 	return true;
@@ -112,7 +112,7 @@ void TowerLayer::ccTouchMoved(CCTouch* touch,CCEvent* event){
 
 
 void TowerLayer::hideTowerMenu(){
-	CCActionInterval* scaleIn = CCScaleTo::create(0.5,0);
+	CCActionInterval* scaleIn = CCScaleTo::create(0.3,0);
 	CCObject* item = NULL;
 	CCArray* items = towerMenu->getChildren();
 	CCARRAY_FOREACH(items,item){

@@ -28,7 +28,7 @@ public:
 	*/
 	int attackSpeed;
 public:
-	
+	void attack();
 };
 
 #endif

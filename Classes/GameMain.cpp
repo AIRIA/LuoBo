@@ -27,11 +27,14 @@ bool GameMain::init(){
 	}
 	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	frameCache->addSpriteFramesWithFile((sceneDir+"mainscene1-hd.plist").c_str());
+	CCSpriteBatchNode* mainSceneBatch = CCSpriteBatchNode::createWithTexture(SPRITE(mainbg.png)->getTexture());
+	
+	addChild(mainSceneBatch);
 	//背景图片
 	CCSprite* mainBg = SPRITE(mainbg.png);
 	CCPoint centerPoint = ccp(winSize.width/2,winSize.height/2);
 	mainBg->setPosition(centerPoint);
-	addChild(mainBg);
+	mainSceneBatch->addChild(mainBg);
 
 	//云彩
 	CCSprite* cloud1 = SPRITE(cloud1.png);
@@ -45,10 +48,11 @@ bool GameMain::init(){
 	cloud1->setColor(ccWHITE);
 	cloud2->setColor(ccWHITE);
 	ccBlendFunc bf = {GL_ONE, GL_ONE_MINUS_SRC_ALPHA};
+	mainSceneBatch->setBlendFunc(bf);
 	cloud1->setBlendFunc(bf);
 	cloud2->setBlendFunc(bf);
-	addChild(cloud1);
-	addChild(cloud2);
+	mainSceneBatch->addChild(cloud1);
+	mainSceneBatch->addChild(cloud2);
 	carrotNode = CCNode::create();
 
 	//萝卜
@@ -76,13 +80,20 @@ bool GameMain::init(){
 	CCActionInterval* scaleAction = CCScaleTo::create(0.3,1,1);
 	CCActionInterval* delayRun = CCDelayTime::create(0.3);
 	CCSequence* carrotNodeSeq = CCSequence::create(delayRun,scaleAction,NULL);
-	addChild(carrotNode);
 	
+	addChild(carrotNode);
 	//Logo图片
 	CCSprite* mainBg_CN = SPRITE(mainbg_CN.png);
 	mainBg_CN->setPosition(centerPoint);
 	addChild(mainBg_CN);
-
+	CCSprite* bird = SPRITE(bird.png);
+	bird->setPosition(ccp(VisibleRect::leftTop().x+200,VisibleRect::leftTop().y-150));
+	CCActionInterval* birdUp = CCMoveBy::create(2,ccp(0,35));
+	CCActionInterval* birdDown = birdUp->reverse();
+	CCSequence* birdAction = CCSequence::create(birdUp,birdDown,NULL);
+	bird->runAction(CCRepeatForever::create(birdAction));
+	mainSceneBatch->addChild(bird);
+	
 	//冒险模式 Boss模式 宠物窝
 	CCMenuItemSprite* adventureMode = CCMenuItemSprite::create(SPRITE(btn_adventure_normal_CN.png),
 		SPRITE(btn_adventure_pressed_CN.png),SceneManager::shareSceneManager(),menu_selector(SceneManager::toAdventureScene));
@@ -96,13 +107,7 @@ bool GameMain::init(){
 	mainMenu->setPosition(ccp(VisibleRect::center().x,VisibleRect::bottom().y+100));
 	addChild(mainMenu);
 
-	CCSprite* bird = SPRITE(bird.png);
-	bird->setPosition(ccp(VisibleRect::leftTop().x+200,VisibleRect::leftTop().y-150));
-	CCActionInterval* birdUp = CCMoveBy::create(2,ccp(0,35));
-	CCActionInterval* birdDown = birdUp->reverse();
-	CCSequence* birdAction = CCSequence::create(birdUp,birdDown,NULL);
-	bird->runAction(CCRepeatForever::create(birdAction));
-	addChild(bird);
+	
 	//设置和帮助菜单
 	CCMenuItemSprite* settingBtn = CCMenuItemSprite::create(SPRITE(btn_setting_normal.png),SPRITE(btn_setting_pressed.png),
 		SceneManager::shareSceneManager(),menu_selector(SceneManager::toSettingScene));

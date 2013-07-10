@@ -5,6 +5,10 @@
 
 class TowerManager{
 public:
+	static CCPoint towerPoint;
+	static CCArray* towerBatches;
+public:
+	
 	/**
 	创建可以供玩家选择的炮塔
 	*/

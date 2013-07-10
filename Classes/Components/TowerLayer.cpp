@@ -88,6 +88,7 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 		return false;
 	}
 	CCPoint touchPoint = convertToTouchInfo(touch);
+	TowerManager::towerPoint = touchPoint;
 	if(ShareManager::getInstance()->containTouchPoint(touchPoint)){
 		AddTowerSprite* addTowerSpr = AddTowerSprite::createATSWithSpriteFrameName("select_00.png");//SPRITE(select_00.png);
 		//addTowerSpr->setTargetBegan(this,menu_selector(TowerLayer::hideTowerMenu));

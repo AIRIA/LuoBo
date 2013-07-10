@@ -124,7 +124,7 @@
     <ClInclude Include="..\Classes\Model\AddTowerSprite.h">
       <Filter>include\models</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\towers\Gun.h">
+    <ClInclude Include="..\Classes\towers\BaseTower.h">
       <Filter>include\towers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -207,7 +207,7 @@
     <ClCompile Include="..\Classes\Model\AddTowerSprite.cpp">
       <Filter>include\models</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\towers\Gun.cpp">
+    <ClCompile Include="..\Classes\towers\BaseTower.cpp">
       <Filter>include\towers</Filter>
     </ClCompile>
   </ItemGroup>

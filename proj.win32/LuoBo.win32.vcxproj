@@ -149,7 +149,7 @@
     <ClInclude Include="..\Classes\Model\TowerInfo.h" />
     <ClInclude Include="..\Classes\SceneManager.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
-    <ClInclude Include="..\Classes\towers\Gun.h" />
+    <ClInclude Include="..\Classes\towers\BaseTower.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
@@ -179,7 +179,7 @@
     <ClCompile Include="..\Classes\Model\TowerInfo.cpp" />
     <ClCompile Include="..\Classes\SceneManager.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
-    <ClCompile Include="..\Classes\towers\Gun.cpp" />
+    <ClCompile Include="..\Classes\towers\BaseTower.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

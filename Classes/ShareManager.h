@@ -4,6 +4,7 @@
 #include "Components\MonsterSpriteBatch.h"
 #include "Model\Carrot.h"
 #include "Components\TowerLayer.h"
+#include "MainScenes\BattleScene.h"
 
 USING_NS_CC;
 
@@ -22,6 +23,7 @@ public:
 	CCSpriteBatchNode* bulletBatchNode;
 	TowerLayer* towerLayer;
 	Carrot* carrot;
+	BattleScene* battleScene;
 	CCSprite* bossHp;
 	
 	CCArray* getRouteInfo();

@@ -135,6 +135,7 @@ bool BattleScene::init(){
 	if(!BaseScene::init()){
 		return false;
 	}
+	ShareManager::getInstance()->battleScene = this;
 	CCString* mapUrl = CCString::createWithFormat("Themes/Theme%d/",themeId);
 	CCString* route = CCString::createWithFormat("Themes/Theme%d/BG%d/BG-hd.plist",themeId,mapId);
 	frameCache->addSpriteFramesWithFile("Themes/scene/gamemenu-hd.plist");
@@ -224,8 +225,10 @@ void BattleScene::loadMap(){
 	addChild(bgSpr);
 
 	//load route background image
+	ccBlendFunc bf = {GL_ONE, GL_ONE_MINUS_SRC_ALPHA};
 	CCSprite* routeSpr = SPRITE(Path.png);
 	routeSpr->setPosition(VisibleRect::center());
+	routeSpr->setBlendFunc(bf);
 	addChild(routeSpr);
 	
 	CCString* items = CCString::createWithFormat("Themes/Theme%d/Items/Object0%d-hd.plist",themeId,type);

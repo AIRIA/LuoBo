@@ -101,7 +101,7 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 		addTowerSpr->runAction(CCRepeatForever::create(animate));
 		showTowerMenu(touchPoint);
 	}else{
-		CCSprite* forbidden = SPRITE(Fan01.png);
+		CCSprite* forbidden = SPRITE(Fan-11.png);
 		forbidden->setPosition(touchPoint);
 		CCActionInterval* fadeOut = CCFadeOut::create(EFF_TIME);
 		forbidden->runAction(fadeOut);

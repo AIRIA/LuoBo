@@ -103,13 +103,18 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 	}else{
 		CCSprite* forbidden = SPRITE(Fan-11.png);
 		forbidden->setPosition(touchPoint);
+		CCCallFuncN* removeFunc = CCCallFuncN::create(this,callfuncN_selector(TowerLayer::removeForbiddenSpr));
 		CCActionInterval* fadeOut = CCFadeOut::create(EFF_TIME);
-		forbidden->runAction(fadeOut);
+		forbidden->runAction(CCSequence::create(fadeOut,removeFunc,NULL));
 		addChild(forbidden);
 		hideTowerMenu();
 	}
 	
 	return true;
+}
+
+void TowerLayer::removeForbiddenSpr(CCNode* node){
+	node->getParent()->removeChild(node);
 }
 
 void TowerLayer::addTower(CCPoint &point){

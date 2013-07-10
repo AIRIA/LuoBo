@@ -45,11 +45,15 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 	CCARRAY_FOREACH(towerBatches,batchNode){
 		BaseTowerSpriteBatchNode* btsbn = (BaseTowerSpriteBatchNode*)batchNode;
 		string targetType = btsbn->towerType;
-		if(targetType == "Bottle"){
+		string selectType = towerType;
+		if(targetType == selectType){
 			//炮塔底座
 			CCSprite* base = CCSprite::createWithSpriteFrameName((targetType+"-11.png").c_str());
+			GiantSprite* tower = GiantSprite::creatGSWithSpriteFrameName((targetType+"11.png").c_str());
 			base->setPosition(towerPoint);
+			tower->setPosition(towerPoint);
 			btsbn->addChild(base);
+			btsbn->addChild(tower);
 		}
 	}
 	return 0;

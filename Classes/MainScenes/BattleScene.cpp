@@ -357,5 +357,4 @@ void BattleScene::initBatchNodeLayers(){
 	addChild(sm->cloudBatchNode);
 	addChild(sm->towerLayer);
 	CCLog("retainCount%d",sm->getRouteInfo()->retainCount());
-	
 }

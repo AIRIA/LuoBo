@@ -20,6 +20,7 @@ public:
 
 	void showTowerMenu(CCPoint &point);
 	void hideTowerMenu(CCObject* pSender=NULL);
+	void removeForbiddenSpr(CCNode* node);
 };
 
 #endif

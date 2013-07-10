@@ -1,5 +1,6 @@
 ﻿#include "TowerMenuItemSprite.h"
 #include "../manager/TowerManager.h"
+#include "../ShareManager.h"
 
 TowerMenuItemSprite* TowerMenuItemSprite::createTower(CCNode* normalSprite, CCNode* selectedSprite){
 	TowerMenuItemSprite* tmis = new TowerMenuItemSprite();
@@ -11,4 +12,5 @@ TowerMenuItemSprite* TowerMenuItemSprite::createTower(CCNode* normalSprite, CCNo
 
 void TowerMenuItemSprite::createSelectTower(CCObject* pSender){
 	TowerManager::createSelectTower(towerType.c_str());
+	ShareManager::getInstance()->towerLayer->hideTowerMenu();
 }

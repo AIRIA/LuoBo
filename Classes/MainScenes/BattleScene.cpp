@@ -84,23 +84,23 @@ void BattleScene::removeStartLayer(CCObject* pSender,void* obj){
 //添加可放置tower的提示位置
 void BattleScene::showTowerLocation(){
 	CCSpriteBatchNode* towerLoc = CCSpriteBatchNode::createWithTexture(SPRITE(select_00.png)->getTexture());
-	ccBlendFunc cbl = {GL_ONE_MINUS_SRC_ALPHA,GL_ONE }; 
-	towerLoc->setBlendFunc(cbl);
+	ccBlendFunc cbf = {GL_ZERO, GL_ONE_MINUS_SRC_ALPHA}; 
+	towerLoc->setBlendFunc(cbf);
 	CCObject* towerObj = NULL;
-	CCLayer* batchLayer = CCLayer::create();
+	addChild(towerLoc);
 	CCARRAY_FOREACH(towersInfo,towerObj){
 		TowerInfo* towerInfo = (TowerInfo*)towerObj;
 		CCSprite* towerTip = SPRITE(select_00.png);
+		towerTip->setOpacity(0);
 		towerTip->setPosition(towerInfo->location);
 		towerLoc->addChild(towerTip);
-		towerTip->setOpacity(0);
 		CCActionInterval* delay = CCDelayTime::create(0.5);
-		CCActionInterval* fadeOut = CCFadeTo::create(0.5,1);
-		CCActionInterval* fadeIn = CCFadeTo::create(0.5,0);
-		CCSequence* fadeSeq = CCSequence::create(delay,fadeOut->copy(),fadeIn,fadeOut,NULL);
-		towerTip->runAction(CCRepeat::create(fadeSeq,1));
+		CCActionInterval* fadeOut = CCFadeOut::create(0.5);
+		CCActionInterval* fadeIn = CCFadeIn::create(0.5);
+		CCSequence* fadeSeq = CCSequence::create(delay,fadeIn,fadeOut,NULL);
+		towerTip->runAction(CCRepeat::create(fadeSeq,5));
 	}
-	addChild(towerLoc);
+	
 	schedule(schedule_selector(BattleScene::startMonsterThread),1.5);
 }
 int monsterNum = 0;

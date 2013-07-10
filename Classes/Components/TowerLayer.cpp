@@ -108,6 +108,8 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 		AddTowerSprite* addTowerSpr = AddTowerSprite::createATSWithSpriteFrameName("select_00.png");//SPRITE(select_00.png);
 		//addTowerSpr->setTargetBegan(this,menu_selector(TowerLayer::hideTowerMenu));
 		addTowerSpr->setPosition(touchPoint);
+		ccBlendFunc bf = {GL_ONE, GL_ONE_MINUS_SRC_ALPHA};
+		addTowerSpr->setBlendFunc(bf);
 		addChild(addTowerSpr);
 		CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName("addTower");
 		CCAnimate* animate = CCAnimate::create(animation);

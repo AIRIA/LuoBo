@@ -24,9 +24,13 @@ public:
 	*/
 	int atk;
 	/**
-	攻击速度
+		攻击速度
 	*/
 	int attackSpeed;
+	/**
+		攻击范围
+	*/
+	int attackDistance;
 public:
 	void attack();
 };

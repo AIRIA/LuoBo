@@ -3,6 +3,7 @@
 #include "../VisibleRect.h"
 #include "../ShareManager.h"
 #include "../Model/AddTowerSprite.h"
+#include "../manager/TowerManager.h"
 
 /**
   缩放效果的时间
@@ -48,24 +49,7 @@ void TowerLayer::showTowerMenu(CCPoint &point){
 void TowerLayer::onEnter(){
 	isShow = false;
 	string towerName[] = {"Bottle","Fan","Shit"};
-	towerMenu = CCMenu::create();
-	towerMenu->ignoreAnchorPointForPosition(true);
-	//在这里加载炮塔信息
-	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
-	string itemName;
-	for(int i=0;i<3;i++){
-		itemName = towerName[i]+"01.png";
-		towerName[i] = "T"+towerName[i]+"-hd.plist";
-		towerName[i] = "Themes/Towers/"+towerName[i];
-		frameCache->addSpriteFramesWithFile(towerName[i].c_str());
-		CCMenuItemSprite* towerItem = CCMenuItemSprite::create(CCSprite::createWithSpriteFrameName(itemName.c_str()),
-			CCSprite::createWithSpriteFrameName(itemName.c_str()));
-		towerMenu->addChild(towerItem);
-	}
-	towerMenu->alignItemsHorizontallyWithPadding(0);
-	towerMenu->retain();
-	towerMenu->setContentSize(CCSizeMake(240,80));
-	CCSize size = towerMenu->getContentSize();
+	towerMenu = TowerManager::createTowerList(towerName);
 	CCLayer::onEnter();
 }
 

@@ -142,6 +142,7 @@
     <ClInclude Include="..\Classes\MainScenes\SubThemeScene.h" />
     <ClInclude Include="..\Classes\manager\AnimateManager.h" />
     <ClInclude Include="..\Classes\manager\MonsterManager.h" />
+    <ClInclude Include="..\Classes\manager\TowerManager.h" />
     <ClInclude Include="..\Classes\Model\AddTowerSprite.h" />
     <ClInclude Include="..\Classes\Model\Carrot.h" />
     <ClInclude Include="..\Classes\Model\Monster.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="..\Classes\MainScenes\SubThemeScene.cpp" />
     <ClCompile Include="..\Classes\manager\AnimateManager.cpp" />
     <ClCompile Include="..\Classes\manager\MonsterManager.cpp" />
+    <ClCompile Include="..\Classes\manager\TowerManager.cpp" />
     <ClCompile Include="..\Classes\Model\AddTowerSprite.cpp" />
     <ClCompile Include="..\Classes\Model\Carrot.cpp" />
     <ClCompile Include="..\Classes\Model\Monster.cpp" />

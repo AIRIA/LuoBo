@@ -127,6 +127,9 @@
     <ClInclude Include="..\Classes\towers\BaseTower.h">
       <Filter>include\towers</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\manager\TowerManager.h">
+      <Filter>include\managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -209,6 +212,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\towers\BaseTower.cpp">
       <Filter>include\towers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\manager\TowerManager.cpp">
+      <Filter>include\managers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

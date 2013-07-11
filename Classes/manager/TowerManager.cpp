@@ -2,6 +2,7 @@
 #include "../Components/TowerMenuItemSprite.h"
 #include "../Components/BaseTowerSpriteBatchNode.h"
 #include "../ShareManager.h"
+#include "../towers/BaseTower.h"
 
 CCPoint TowerManager::towerPoint = CCPointZero;
 CCArray* TowerManager::towerBatches = CCArray::createWithCapacity(5);
@@ -49,7 +50,8 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 		if(targetType == selectType){
 			//炮塔底座
 			CCSprite* base = CCSprite::createWithSpriteFrameName((targetType+"-11.png").c_str());
-			GiantSprite* tower = GiantSprite::creatGSWithSpriteFrameName((targetType+"11.png").c_str());
+			BaseTower* tower = BaseTower::createBaseTower((targetType+"11.png").c_str());
+			//GiantSprite* tower = GiantSprite::creatGSWithSpriteFrameName((targetType+"11.png").c_str());
 			base->setPosition(towerPoint);
 			tower->setPosition(towerPoint);
 			btsbn->addChild(base);

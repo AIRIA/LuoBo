@@ -32,10 +32,13 @@ public:
 	*/
 	int attackDistance;
 public:
-	virtual void attack();
+	BaseTower():attackDistance(100){};
+	virtual bool init();
+	virtual void attack(float dt);
 	virtual void findMonster();
 	virtual void fire();
-	virtual void upgrad();
+	virtual void upgrade();
+	static BaseTower* createBaseTower(const char* tower);
 };
 
 #endif

@@ -9,7 +9,7 @@ GiantSprite* GiantSprite::creatGSWithSpriteFrameName(const char* name){
 }
 
 void GiantSprite::onEnter(){
-	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,-1,true);
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,-129,true);
 	CCSprite::onEnter();
 }
 

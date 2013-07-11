@@ -13,4 +13,5 @@ TowerMenuItemSprite* TowerMenuItemSprite::createTower(CCNode* normalSprite, CCNo
 void TowerMenuItemSprite::createSelectTower(CCObject* pSender){
 	TowerManager::createSelectTower(towerType.c_str());
 	ShareManager::getInstance()->towerLayer->hideTowerMenu();
+	CCNode* node = (CCNode*)pSender;
 }

@@ -8,7 +8,7 @@
 /**
   缩放效果的时间
 */
-#define EFF_TIME 0.3
+#define EFF_TIME 0.2
 #define TOWER_SIZE 80
 
 void TowerLayer::showTowerMenu(CCPoint &point){
@@ -139,5 +139,4 @@ void TowerLayer::hideTowerMenu(CCObject* pSender){
 		CCMenuItemSprite* mis = (CCMenuItemSprite*)item;
 		mis->runAction((CCActionInterval*)scaleIn->copy());
 	}
-	CCSize size = towerMenu->getContentSize();
 }

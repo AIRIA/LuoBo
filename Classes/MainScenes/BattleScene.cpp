@@ -329,7 +329,7 @@ void BattleScene::openGameMenu(CCObject* pSender){
 
 //initial animations
 void BattleScene::initAnimations(){
-	AnimateManager::shareAnimateManager()->createAnimation("air_carrot","air",1,5,8);
+	AnimateManager::shareAnimateManager()->createAnimation("air_carrot","air",1,5,10);
 	AnimateManager::shareAnimateManager()->createAnimation("addTower","select_",1,4,8);
 	AnimateManager::shareAnimateManager()->createAnimation("boss_big","boss_big",1,2,MONSTER_FPS);
 	AnimateManager::shareAnimateManager()->createAnimation("fat_boss_green","fat_boss_green",1,2,MONSTER_FPS);

@@ -35,15 +35,10 @@ void MonsterSpriteBatch::freshMonster(float dt){
 		int currentPointIdx = monsterSpr->currentPointIdx;
 		int nextPointIdx = monsterSpr->nextPointIdx;
 		if(currentPointIdx==(pointCount-2)){
-			CCSprite* air = CCSprite::createWithSpriteFrameName("air01.png");
-			CCAnimate* airAnimate = CCAnimate::create(CCAnimationCache::sharedAnimationCache()->animationByName("air_carrot"));
-			CCCallFuncN* cfn = CCCallFuncN::create(this,callfuncN_selector(MonsterSpriteBatch::removeAirCarrot));
-			CCSequence* airSeq = CCSequence::create(airAnimate,cfn,NULL);
-			air->runAction(airSeq);
+			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
 			air->setAnchorPoint(ccp(0.5,0.25));
 			air->setPosition(monsterSpr->getPosition());
 			monsterSpr->getParent()->removeChild(monsterSpr);
-			sm->cloudBatchNode->addChild(air);
 			sm->carrot->showHP();
 			continue;
 		}

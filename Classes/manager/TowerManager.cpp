@@ -54,6 +54,8 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 			tower->setPosition(towerPoint);
 			btsbn->addChild(base);
 			btsbn->addChild(tower);
+			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
+			air->setPosition(towerPoint);
 		}
 	}
 	return 0;

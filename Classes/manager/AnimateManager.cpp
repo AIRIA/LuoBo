@@ -1,5 +1,5 @@
 ﻿#include "AnimateManager.h"
-
+#include "../ShareManager.h"
 
 
 AnimateManager* AnimateManager::_instance = NULL;
@@ -28,4 +28,18 @@ void AnimateManager::createAnimation(const char* animateName,string prevStr,int 
 	}
 	CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames,1.0/fps);
 	animationCache->addAnimation(animation,animateName);
+}
+
+void AnimateManager::removeFrameParent(CCNode* node){
+	node->getParent()->removeChild(node);
+}
+
+CCSprite* AnimateManager::createAnimate_RunOnce(const char* initFrame,const char* animateName){
+	CCSprite* air = CCSprite::createWithSpriteFrameName(initFrame);
+	CCAnimate* airAnimate = CCAnimate::create(CCAnimationCache::sharedAnimationCache()->animationByName(animateName));
+	CCCallFuncN* cfn = CCCallFuncN::create(this,callfuncN_selector(AnimateManager::removeFrameParent));
+	CCSequence* airSeq = CCSequence::create(airAnimate,cfn,NULL);
+	air->runAction(airSeq);
+	ShareManager::getInstance()->cloudBatchNode->addChild(air);
+	return air;
 }

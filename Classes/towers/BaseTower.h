@@ -32,7 +32,10 @@ public:
 	*/
 	int attackDistance;
 public:
-	void attack();
+	virtual void attack();
+	virtual void findMonster();
+	virtual void fire();
+	virtual void upgrad();
 };
 
 #endif

@@ -107,7 +107,7 @@ int monsterNum = 0;
 void BattleScene::startMonsterThread(float dt){
 	if(monsterNum<10){
 		monsterNum++;
-		Monster::createWithMonsterName("fat_green");
+		Monster::createWithMonsterName("fly_blue02.png","fat_green");
 	}else{
 		monsterNum = 0;
 		unschedule(schedule_selector(BattleScene::startMonsterThread));

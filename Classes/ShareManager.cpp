@@ -7,6 +7,8 @@ ShareManager* ShareManager::_instance = 0;
 ShareManager* ShareManager::getInstance(){
 	if(!_instance){
 		_instance = new ShareManager();
+		_instance->monsters = CCArray::create();
+		_instance->monsters->retain();
 	}
 	return _instance;
 }

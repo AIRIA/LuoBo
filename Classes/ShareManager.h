@@ -14,23 +14,34 @@ protected:
 	CCArray* routeInfo;
 	CCArray* towerInfo;
 public:
+	//当前主题ID
 	int currentThemeId;
+	//当前地图ID
 	int mapId;
 	ShareManager():currentThemeId(1),mapId(1){};
 	static ShareManager* getInstance();
+	//怪物所在的BatchNode
 	MonsterSpriteBatch* monsterBatchNode;
+	//空气爆炸效果BatchNode
 	CCSpriteBatchNode* cloudBatchNode;
+	//子弹BatchNode
 	CCSpriteBatchNode* bulletBatchNode;
+	//炮塔层
 	TowerLayer* towerLayer;
 	Carrot* carrot;
+	//战斗场景实例
 	BattleScene* battleScene;
 	CCSprite* bossHp;
-	
+	//怪物数组
+	CCArray* monsters;
+
 	CCArray* getRouteInfo();
 	void setTowersInfo(CCArray* towersInfo);
 	CCArray* getTowersInfo();
 	void setRouteInfo(CCArray* routeInfo);
+	//对路线进行排序
 	void orderRouteInfo();
+	//
 	bool containTouchPoint(CCPoint &point);
 };
 

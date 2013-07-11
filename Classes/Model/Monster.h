@@ -13,7 +13,7 @@ public:
 	
 	CCSprite* monsterSpr;
 	virtual bool init();
-	static void createWithMonsterName(char* monsterName);
+	static void createWithMonsterName(const char* initFrame,const char* monsterName);
 };
 
 #endif

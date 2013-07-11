@@ -34,10 +34,12 @@ void MonsterSpriteBatch::freshMonster(float dt){
 		Monster* monsterSpr = (Monster*)child;
 		int currentPointIdx = monsterSpr->currentPointIdx;
 		int nextPointIdx = monsterSpr->nextPointIdx;
+		//判断是不是碰到了萝卜
 		if(currentPointIdx==(pointCount-2)){
 			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
 			air->setAnchorPoint(ccp(0.5,0.25));
 			air->setPosition(monsterSpr->getPosition());
+			ShareManager::getInstance()->monsters->fastRemoveObject(monsterSpr);
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->carrot->showHP();
 			continue;

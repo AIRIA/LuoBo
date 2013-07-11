@@ -18,7 +18,7 @@ public:
 	/**
 	   是否可以升级
 	*/
-	bool upgradble;
+	bool upgradable;
 	/**
 		攻击力
 	*/

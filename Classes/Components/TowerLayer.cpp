@@ -126,7 +126,7 @@ void TowerLayer::addTower(CCPoint &point){
 }
 
 void TowerLayer::ccTouchEnded(CCTouch* touch,CCEvent* event){
-
+	
 }
 
 void TowerLayer::ccTouchMoved(CCTouch* touch,CCEvent* event){

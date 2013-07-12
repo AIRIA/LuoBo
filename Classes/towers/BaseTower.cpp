@@ -45,9 +45,12 @@ void BaseTower::attack(){
 bool BaseTower::ccTouchBegan(CCTouch* touch,CCEvent* event){
 	if(isContainPoint(touch)){
 		ShareManager::getInstance()->isTower = true;
-	}else{
-		ShareManager::getInstance()->isTower = false;
+		return true;
 	}
 	
-	return true;
+	return false;
+}
+
+void BaseTower::ccTouchEnded(CCTouch* touch,CCEvent* event){
+	ShareManager::getInstance()->isTower = false;
 }

@@ -349,10 +349,12 @@ void BattleScene::initAnimations(){
 
 void BattleScene::initBatchNodeLayers(){
 	ShareManager* sm = ShareManager::getInstance();
+	battleLayer = CCLayer::create();
 	//sm->bulletBatchNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName());
 	sm->monsterBatchNode = MonsterSpriteBatch::createBatchNodeWithTexture(frameCache->spriteFrameByName("fly_blue01.png")->getTexture());
 	sm->cloudBatchNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName("air01.png")->getTexture());
 	sm->towerLayer = TowerLayer::create();
+	addChild(battleLayer);
 	addChild(sm->monsterBatchNode);
 	addChild(sm->cloudBatchNode);
 	addChild(sm->towerLayer);

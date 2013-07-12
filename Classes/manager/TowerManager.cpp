@@ -28,7 +28,7 @@ CCMenu* TowerManager::createTowerList(string towerTypes[]){
 		BaseTowerSpriteBatchNode* btsbn = BaseTowerSpriteBatchNode::createBatchNode(towerNormal->getTexture());
 		btsbn->towerType = towerType;
 		towerBatches->addObject(btsbn);
-		ShareManager::getInstance()->battleScene->addChild(btsbn);
+		ShareManager::getInstance()->battleScene->battleLayer->addChild(btsbn);
 		TowerMenuItemSprite* towerItem = TowerMenuItemSprite::createTower(towerNormal,towerNormal);
 		towerItem->towerType = towerType;
 		towerMenu->addChild(towerItem);

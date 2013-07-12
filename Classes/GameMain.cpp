@@ -5,6 +5,7 @@
 #include "MainScenes\SettingScene.h"
 #include "MainScenes\HelpScene.h"
 #include "SceneManager.h"
+#include "Components\BaseTowerSpriteBatchNode.h"
 
 enum{
 	kLeaf2
@@ -127,9 +128,10 @@ bool GameMain::init(){
 	carrotLeaf2->setTag(kLeaf2);
 	carrotNode->runAction(carrotNodeSeq);
 	carrotLeaf3->runAction(CCRepeatForever::create(shakeSeq));
-
-	BaseScene* bs = BaseScene::create();
-
+	
+	/*BaseTowerSpriteBatchNode* batchTest = BaseTowerSpriteBatchNode::createBatchNode(SPRITE(mainbg_CN.png)->getTexture());
+	addChild(batchTest);
+*/
 	return true;
 }
 

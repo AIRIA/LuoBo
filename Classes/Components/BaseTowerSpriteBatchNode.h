@@ -9,6 +9,7 @@ class BaseTowerSpriteBatchNode:public CCSpriteBatchNode{
 public:
 	string towerType;
 	static BaseTowerSpriteBatchNode* createBatchNode(CCTexture2D* texture);
+	void fire(float dt);
 };
 
 #endif

@@ -32,9 +32,9 @@ public:
 	*/
 	int attackDistance;
 public:
-	BaseTower():attackDistance(100){};
+	BaseTower():attackDistance(160){};
 	virtual bool init();
-	virtual void attack(float dt);
+	virtual void attack();
 	virtual void findMonster();
 	virtual void fire();
 	virtual void upgrade();

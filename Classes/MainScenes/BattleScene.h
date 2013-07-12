@@ -8,6 +8,7 @@ class BattleScene:public BaseScene{
 public:
 	CCArray* towersInfo;
 	CCArray* routeInfo;
+	CCLayer* battleLayer;
 public:
 	virtual void onEnter();
 	static BattleScene* createWithThemeIdx();

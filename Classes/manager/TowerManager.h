@@ -3,7 +3,7 @@
 
 #include "../towers/BaseTower.h"
 
-class TowerManager{
+class TowerManager:public CCNode{
 public:
 	static CCPoint towerPoint;
 	static CCArray* towerBatches;

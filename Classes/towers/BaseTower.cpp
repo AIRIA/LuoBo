@@ -7,7 +7,6 @@ BaseTower* BaseTower::createBaseTower(const char* tower){
 	if(bt&&bt->initWithSpriteFrameName(tower)){
 		bt->autorelease();
 	}
-	bt->schedule(schedule_selector(BaseTower::attack));
 	return bt;
 }
 
@@ -22,7 +21,10 @@ void BaseTower::findMonster(){
 		CCPoint vectorPoint = ccpSub(monsterPos,pos);
 		if(distance<=attackDistance){
 			float angle = ccpToAngle(vectorPoint);
-			setRotation(angle);
+			float degree = CC_RADIANS_TO_DEGREES(angle);
+			CCActionInterval* rotate = CCRotateTo::create(0.3,-degree+90);
+			runAction(CCSequence::create(rotate,NULL));
+			break;
 		}
 	}
 }
@@ -35,7 +37,7 @@ void BaseTower::upgrade(){
 
 }
 
-void BaseTower::attack(float dt){
+void BaseTower::attack(){
 	findMonster();
 	fire();
 }

@@ -4,12 +4,13 @@ GiantSprite* GiantSprite::creatGSWithSpriteFrameName(const char* name){
 	GiantSprite* gs = new GiantSprite();
 	if(gs&&gs->initWithSpriteFrameName(name)){
 		gs->autorelease();
+
 	}
 	return gs;
 }
 
 void GiantSprite::onEnter(){
-	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,-129,true);
+	CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,touchPriority,false);
 	CCSprite::onEnter();
 }
 
@@ -42,4 +43,30 @@ void GiantSprite::ccTouchEnded(CCTouch* touch,CCEvent* event){
 	if(endTarget){
 		(endTarget->*endSelector)(this);
 	}
+}
+
+
+void GiantSprite::setTouchPriority(int priority){
+	 if (touchPriority != priority){
+        touchPriority = priority;
+        
+		if( touchEnable)
+        {
+			setTouchEnabled(false);
+			setTouchEnabled(true);
+		}
+    }
+}
+
+void GiantSprite::setTouchEnabled(bool enabled){
+	if (touchEnable!= enabled){
+        touchEnable = enabled;
+        if (m_bRunning){
+            if (enabled){
+                CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,touchPriority,false);
+            }else{
+                CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+            }
+        }
+    }
 }

@@ -83,6 +83,9 @@ CCPoint TowerLayer::convertToTouchInfo(CCTouch* touch){
 }
 
 bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
+	if(ShareManager::getInstance()->isTower){
+		return false;
+	}
 	if(isShow){
 		hideTowerMenu();
 		return false;
@@ -96,6 +99,7 @@ bool TowerLayer::ccTouchBegan(CCTouch* touch,CCEvent* event){
 		ccBlendFunc bf = {GL_ONE, GL_ONE_MINUS_SRC_ALPHA};
 		addTowerSpr->setBlendFunc(bf);
 		addChild(addTowerSpr);
+		addTowerSpr->setTouchPriority(-129);
 		CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName("addTower");
 		CCAnimate* animate = CCAnimate::create(animation);
 		addTowerSpr->runAction(CCRepeatForever::create(animate));

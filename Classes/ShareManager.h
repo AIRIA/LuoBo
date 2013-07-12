@@ -13,12 +13,14 @@ protected:
 	static ShareManager* _instance;
 	CCArray* routeInfo;
 	CCArray* towerInfo;
+	
 public:
+	bool isTower;
 	//当前主题ID
 	int currentThemeId;
 	//当前地图ID
 	int mapId;
-	ShareManager():currentThemeId(1),mapId(1){};
+	ShareManager():currentThemeId(1),mapId(1),isTower(false){};
 	static ShareManager* getInstance();
 	//怪物所在的BatchNode
 	MonsterSpriteBatch* monsterBatchNode;

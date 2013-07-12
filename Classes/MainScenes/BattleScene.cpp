@@ -141,6 +141,7 @@ bool BattleScene::init(){
 	frameCache->addSpriteFramesWithFile("Themes/scene/gamemenu-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/Items/Items02-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/Items/Items01-hd.plist");
+	frameCache->addSpriteFramesWithFile("Themes/Items/Items00-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/scene/darkbg-hd.plist");
 	frameCache->addSpriteFramesWithFile("Themes/scene/weibo-hd.plist");
 	frameCache->addSpriteFramesWithFile(route->getCString());

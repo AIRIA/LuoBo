@@ -136,6 +136,7 @@
     <ClInclude Include="..\Classes\Components\MonsterSpriteBatch.h" />
     <ClInclude Include="..\Classes\Components\TowerLayer.h" />
     <ClInclude Include="..\Classes\Components\TowerMenuItemSprite.h" />
+    <ClInclude Include="..\Classes\Components\UpgradeDock.h" />
     <ClInclude Include="..\Classes\GameMain.h" />
     <ClInclude Include="..\Classes\MainScenes\AdventureScene.h" />
     <ClInclude Include="..\Classes\MainScenes\BattleScene.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="..\Classes\Components\MonsterSpriteBatch.cpp" />
     <ClCompile Include="..\Classes\Components\TowerLayer.cpp" />
     <ClCompile Include="..\Classes\Components\TowerMenuItemSprite.cpp" />
+    <ClCompile Include="..\Classes\Components\UpgradeDock.cpp" />
     <ClCompile Include="..\Classes\GameMain.cpp" />
     <ClCompile Include="..\Classes\MainScenes\AdventureScene.cpp" />
     <ClCompile Include="..\Classes\MainScenes\BattleScene.cpp" />

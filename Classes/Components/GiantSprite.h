@@ -10,9 +10,13 @@ protected:
 	SEL_MenuHandler beganSelector;
 	CCObject* endTarget;
 	SEL_MenuHandler endSelector;
-
+	int touchPriority;
+	bool touchEnable;
 public:
-	GiantSprite():beganTarget(NULL),endTarget(NULL){};
+	void setTouchEnabled(bool value);
+	void setTouchPriority(int value);
+
+	GiantSprite():beganTarget(NULL),endTarget(NULL),touchEnable(true),touchPriority(0){};
 	static GiantSprite* creatGSWithSpriteFrameName(const char* name);
 	virtual void onEnter();
 	virtual void onExit();

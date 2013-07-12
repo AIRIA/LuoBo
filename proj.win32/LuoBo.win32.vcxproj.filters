@@ -136,6 +136,9 @@
     <ClInclude Include="..\Classes\Components\BaseTowerSpriteBatchNode.h">
       <Filter>include\components</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Components\UpgradeDock.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -226,6 +229,9 @@
       <Filter>include\components</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Components\BaseTowerSpriteBatchNode.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\UpgradeDock.cpp">
       <Filter>include\components</Filter>
     </ClCompile>
   </ItemGroup>

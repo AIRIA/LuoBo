@@ -9,7 +9,7 @@ CCArray* TowerManager::towerBatches = CCArray::createWithCapacity(5);
 
 CCMenu* TowerManager::createTowerList(string towerTypes[]){
 	
-	string towerName[] = {"Bottle","Fan","Shit"};
+	string towerName[] = {"Bottle","Fan","Shit","Rocket"};
 	CCMenu* towerMenu = CCMenu::create();
 	towerMenu->ignoreAnchorPointForPosition(true);
 	CCArray* batches = CCArray::create();
@@ -18,7 +18,7 @@ CCMenu* TowerManager::createTowerList(string towerTypes[]){
 	CCSpriteFrameCache* frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 	string itemName;
 	string towerType;
-	for(int i=0;i<3;i++){
+	for(int i=0;i<4;i++){
 		towerType = towerName[i];
 		itemName = towerName[i]+"01.png";
 		towerName[i] = "T"+towerName[i]+"-hd.plist";
@@ -56,6 +56,7 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 			tower->setPosition(towerPoint);
 			btsbn->addChild(base);
 			btsbn->addChild(tower);
+			tower->setTouchPriority(-130);
 			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
 			air->setPosition(towerPoint);
 		}

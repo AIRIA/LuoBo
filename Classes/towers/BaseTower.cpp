@@ -1,7 +1,7 @@
 ﻿#include "BaseTower.h"
 #include "../ShareManager.h"
 #include "../Model/Monster.h"
-
+//创建炮塔
 BaseTower* BaseTower::createBaseTower(const char* tower){
 	BaseTower* bt = new BaseTower();
 	if(bt&&bt->initWithSpriteFrameName(tower)){
@@ -9,7 +9,7 @@ BaseTower* BaseTower::createBaseTower(const char* tower){
 	}
 	return bt;
 }
-
+//寻找怪物
 void BaseTower::findMonster(){
 	CCObject* obj = NULL;
 	CCArray* monsters = ShareManager::getInstance()->monsters;
@@ -42,9 +42,11 @@ void BaseTower::attack(){
 	fire();
 }
 
-bool BaseTower::init(){
-	if(!GiantSprite::init()){
-		return false;
+bool BaseTower::ccTouchBegan(CCTouch* touch,CCEvent* event){
+	if(isContainPoint(touch)){
+		ShareManager::getInstance()->isTower = true;
+	}else{
+		ShareManager::getInstance()->isTower = false;
 	}
 	
 	return true;

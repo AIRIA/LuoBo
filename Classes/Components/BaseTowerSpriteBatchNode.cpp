@@ -17,6 +17,5 @@ void BaseTowerSpriteBatchNode::fire(float dt){
 		if(tower){
 			tower->attack();
 		}
-		
 	}
 }

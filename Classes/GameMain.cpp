@@ -129,9 +129,6 @@ bool GameMain::init(){
 	carrotNode->runAction(carrotNodeSeq);
 	carrotLeaf3->runAction(CCRepeatForever::create(shakeSeq));
 	
-	/*BaseTowerSpriteBatchNode* batchTest = BaseTowerSpriteBatchNode::createBatchNode(SPRITE(mainbg_CN.png)->getTexture());
-	addChild(batchTest);
-*/
 	return true;
 }
 

@@ -12,6 +12,7 @@ protected:
 	SEL_MenuHandler endSelector;
 
 public:
+	GiantSprite():beganTarget(NULL),endTarget(NULL){};
 	static GiantSprite* creatGSWithSpriteFrameName(const char* name);
 	virtual void onEnter();
 	virtual void onExit();

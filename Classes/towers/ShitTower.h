@@ -7,5 +7,8 @@ class ShitTower:public BaseTower{
 public:
 	CREATE_TOWER(ShitTower);
 	virtual void fire(float dt=0);
+	virtual void initTower();
+	virtual void bulletSchedule(float dt);
+	virtual void bangEffect();
 };
 #endif

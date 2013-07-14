@@ -11,7 +11,7 @@
 CCPoint TowerManager::towerPoint = CCPointZero;
 CCArray* TowerManager::towerBatches = CCArray::createWithCapacity(5);
 
-#define TOWER_FPS 4
+#define TOWER_FPS 12
 
 void TowerManager::loadAnimation(const char* towerName){
 	AnimateManager* am = AnimateManager::shareAnimateManager();
@@ -71,8 +71,7 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 			//炮塔底座
 			CCSprite* base = CCSprite::createWithSpriteFrameName((targetType+"-11.png").c_str());
 			tower = getTower(targetType.c_str());
-			//tower = BaseTower::createBaseTower((targetType+"11.png").c_str());
-			//GiantSprite* tower = GiantSprite::creatGSWithSpriteFrameName((targetType+"11.png").c_str());
+			tower->towerType = targetType;
 			base->setPosition(towerPoint);
 			tower->setPosition(towerPoint);
 			btsbn->addChild(base);

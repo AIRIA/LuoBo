@@ -15,10 +15,11 @@ void BaseTower::findMonster(){
 		float distance = ccpDistance(monsterPos,pos);
 		CCPoint vectorPoint = ccpSub(monsterPos,pos);
 		if(distance<=attackDistance){
+			targetMonster = monster;
 			isFinded = true;
 			float angle = ccpToAngle(vectorPoint);
 			float degree = CC_RADIANS_TO_DEGREES(angle);
-			CCActionInterval* rotate = CCRotateTo::create(0.3,-degree+90);
+			CCActionInterval* rotate = CCRotateTo::create(0.2,-degree+90);
 			runAction(CCSequence::create(rotate,NULL));
 			break;
 		}else{

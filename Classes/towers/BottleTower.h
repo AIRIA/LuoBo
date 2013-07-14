@@ -7,6 +7,10 @@ class BottleTower:public BaseTower{
 public:
 	virtual void fire(float dt=0);
 	CREATE_TOWER(BottleTower);
+	virtual void creatBullte(CCNode* node);
+	virtual void initTower();
+	virtual void bulletSchedule(float dt);
+	virtual void bangEffect();
 };
 
 #endif

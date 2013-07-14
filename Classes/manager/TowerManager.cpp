@@ -3,9 +3,26 @@
 #include "../Components/BaseTowerSpriteBatchNode.h"
 #include "../ShareManager.h"
 #include "../towers/BaseTower.h"
+#include "../manager/AnimateManager.h"
+
+#include "../towers/BottleTower.h"
+#include "../towers/ShitTower.h"
 
 CCPoint TowerManager::towerPoint = CCPointZero;
 CCArray* TowerManager::towerBatches = CCArray::createWithCapacity(5);
+
+#define TOWER_FPS 4
+
+void TowerManager::loadAnimation(const char* towerName){
+	AnimateManager* am = AnimateManager::shareAnimateManager();
+	string lv = towerName;
+	string lv1 = lv+"1";
+	string lv2 = lv+"2";
+	string lv3 = lv+"3";
+	am->createAnimation(lv1.c_str(),towerName,11,13,TOWER_FPS);
+	am->createAnimation(lv2.c_str(),towerName,21,23,TOWER_FPS);
+	am->createAnimation(lv3.c_str(),towerName,31,33,TOWER_FPS);
+}
 
 CCMenu* TowerManager::createTowerList(string towerTypes[]){
 	
@@ -19,11 +36,13 @@ CCMenu* TowerManager::createTowerList(string towerTypes[]){
 	string itemName;
 	string towerType;
 	for(int i=0;i<4;i++){
+		
 		towerType = towerName[i];
 		itemName = towerName[i]+"01.png";
 		towerName[i] = "T"+towerName[i]+"-hd.plist";
 		towerName[i] = "Themes/Towers/"+towerName[i];
 		frameCache->addSpriteFramesWithFile(towerName[i].c_str());
+		loadAnimation(towerType.c_str());
 		CCSprite* towerNormal = CCSprite::createWithSpriteFrameName(itemName.c_str());
 		BaseTowerSpriteBatchNode* btsbn = BaseTowerSpriteBatchNode::createBatchNode(towerNormal->getTexture());
 		btsbn->towerType = towerType;
@@ -43,6 +62,7 @@ CCMenu* TowerManager::createTowerList(string towerTypes[]){
 
 BaseTower* TowerManager::createSelectTower(const char* towerType){
 	CCObject* batchNode = NULL;
+	BaseTower* tower = NULL;
 	CCARRAY_FOREACH(towerBatches,batchNode){
 		BaseTowerSpriteBatchNode* btsbn = (BaseTowerSpriteBatchNode*)batchNode;
 		string targetType = btsbn->towerType;
@@ -50,7 +70,8 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 		if(targetType == selectType){
 			//炮塔底座
 			CCSprite* base = CCSprite::createWithSpriteFrameName((targetType+"-11.png").c_str());
-			BaseTower* tower = BaseTower::createBaseTower((targetType+"11.png").c_str());
+			tower = getTower(targetType.c_str());
+			//tower = BaseTower::createBaseTower((targetType+"11.png").c_str());
 			//GiantSprite* tower = GiantSprite::creatGSWithSpriteFrameName((targetType+"11.png").c_str());
 			base->setPosition(towerPoint);
 			tower->setPosition(towerPoint);
@@ -61,5 +82,21 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 			air->setPosition(towerPoint);
 		}
 	}
-	return 0;
+	return tower;
+}
+#include "../towers/FanTower.h"
+#include "../towers/RoketTower.h"
+BaseTower* TowerManager::getTower(const char* towerType){
+	string tt = towerType;
+	BaseTower* bt = NULL;
+	if(tt=="Bottle"){
+		bt = BottleTower::createTower(towerType);
+	}else if(tt=="Shit"){
+		bt = ShitTower::createTower(towerType);
+	}else if(tt=="Fan"){
+		bt = FanTower::createTower(towerType);
+	}else if(tt=="Rocket"){
+		bt = RoketTower::createTower(towerType);
+	}
+	return bt;
 }

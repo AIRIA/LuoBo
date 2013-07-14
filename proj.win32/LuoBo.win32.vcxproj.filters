@@ -139,6 +139,18 @@
     <ClInclude Include="..\Classes\Components\UpgradeDock.h">
       <Filter>include\components</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\towers\BottleTower.h">
+      <Filter>include\towers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\towers\ShitTower.h">
+      <Filter>include\towers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\towers\FanTower.h">
+      <Filter>include\towers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\towers\RoketTower.h">
+      <Filter>include\towers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -233,6 +245,18 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Components\UpgradeDock.cpp">
       <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\towers\BottleTower.cpp">
+      <Filter>include\towers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\towers\ShitTower.cpp">
+      <Filter>include\towers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\towers\FanTower.cpp">
+      <Filter>include\towers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\towers\RoketTower.cpp">
+      <Filter>include\towers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

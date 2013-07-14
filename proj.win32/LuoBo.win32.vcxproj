@@ -154,6 +154,10 @@
     <ClInclude Include="..\Classes\SceneManager.h" />
     <ClInclude Include="..\Classes\ShareManager.h" />
     <ClInclude Include="..\Classes\towers\BaseTower.h" />
+    <ClInclude Include="..\Classes\towers\BottleTower.h" />
+    <ClInclude Include="..\Classes\towers\FanTower.h" />
+    <ClInclude Include="..\Classes\towers\RoketTower.h" />
+    <ClInclude Include="..\Classes\towers\ShitTower.h" />
     <ClInclude Include="..\Classes\VisibleRect.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="resource.h" />
@@ -188,6 +192,10 @@
     <ClCompile Include="..\Classes\SceneManager.cpp" />
     <ClCompile Include="..\Classes\ShareManager.cpp" />
     <ClCompile Include="..\Classes\towers\BaseTower.cpp" />
+    <ClCompile Include="..\Classes\towers\BottleTower.cpp" />
+    <ClCompile Include="..\Classes\towers\FanTower.cpp" />
+    <ClCompile Include="..\Classes\towers\RoketTower.cpp" />
+    <ClCompile Include="..\Classes\towers\ShitTower.cpp" />
     <ClCompile Include="..\Classes\VisibleRect.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

@@ -5,7 +5,25 @@
 
 using namespace std;
 
+#define CREATE_TOWER(className) \
+	static className* className::createTower(const char* tower){ \
+		string towerName = tower; \
+		towerName = towerName+"11.png"; \
+		className* instance = new className(); \
+		if(instance&&instance->initWithSpriteFrameName(towerName.c_str())){ \
+			instance->autorelease(); \
+		} \
+		instance->schedule(schedule_selector(className::fire)); \
+		return instance; \
+	} 
+
 class BaseTower:public GiantSprite{
+protected:
+	/**
+	是否寻找到了怪物
+	*/
+	bool isFinded;
+
 public:
 	/**
 	   炮塔类型
@@ -32,12 +50,11 @@ public:
 	*/
 	int attackDistance;
 public:
-	BaseTower():attackDistance(160){};
+	BaseTower():attackDistance(160),isFinded(false){};
 	virtual void attack();
 	virtual void findMonster();
-	virtual void fire();
+	virtual void fire(float dt = 0) = 0;
 	virtual void upgrade();
-	static BaseTower* createBaseTower(const char* tower);
 	virtual bool ccTouchBegan(CCTouch* touch,CCEvent* event);
 	virtual void ccTouchEnded(CCTouch* touch,CCEvent* event);
 };

@@ -40,6 +40,5 @@ CCSprite* AnimateManager::createAnimate_RunOnce(const char* initFrame,const char
 	CCCallFuncN* cfn = CCCallFuncN::create(this,callfuncN_selector(AnimateManager::removeFrameParent));
 	CCSequence* airSeq = CCSequence::create(airAnimate,cfn,NULL);
 	air->runAction(airSeq);
-	ShareManager::getInstance()->cloudBatchNode->addChild(air);
 	return air;
 }

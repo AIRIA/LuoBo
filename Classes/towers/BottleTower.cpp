@@ -17,18 +17,21 @@ void BottleTower::creatBullte(CCNode* node){
 	CCAnimation* bulletAnimation = animateCache->animationByName(bulletName.c_str());
 	CCString* firstBullet = CCString::createWithFormat("PBottle%d1.png",towerLevel);
 	CCAnimate* bulletAnimate = CCAnimate::create(bulletAnimation);
-	CCActionInterval* moveTo = CCMoveTo::create(0.2,targetMonster->getPosition());
-	CCSpawn* shoot = CCSpawn::createWithTwoActions(CCRepeatForever::create(bulletAnimate),moveTo);
+	CCCallFunc* bangFunc = CCCallFunc::create(this,callfunc_selector(BottleTower::bangEffect));
+	CCActionInterval* moveTo = CCMoveTo::create(0.1,ccp(targetMonster->getPosition().x,targetMonster->getPosition().y+30));
+	CCSequence* shootSeq = CCSequence::create(moveTo,bangFunc,NULL);
+	CCSpawn* shoot = CCSpawn::createWithTwoActions(CCRepeatForever::create(bulletAnimate),shootSeq);
+	
 	bullet = CCSprite::createWithSpriteFrameName(firstBullet->getCString());
 	bullet->setContentSize(getContentSize());
 	bullet->setRotation(getRotation());
-	int radius = 40;
-	int x = radius*cos(getRotation());
-	int y = radius*sin(getRotation());
-	int temp = x;
-	x = radius*cos(getRotation()+x);
-	y = radius*sin(getRotation()+x);
-	bullet->setPosition(ccp(getPosition().x+x,getPosition().y+y));
+	float rotate = getRotation();
+	CCPoint circlePoint = getPosition();
+	float x = circlePoint.x,y=circlePoint.y;
+	int r = 1;
+	x = x+r*cos(rotate-90);
+	y = y+r*sin(rotate-90);
+	bullet->setPosition(ccp(x,y));
 	bullet->runAction(shoot);
 	getParent()->addChild(bullet,-1);
 }
@@ -38,10 +41,15 @@ void BottleTower::bulletSchedule(float dt){
 }
 
 void BottleTower::bangEffect(){
-
+	CCSprite* bang = animateManager->createAnimate_RunOnce("PBottle01.png","bangAnimate");
+	CCPoint monsterPoint = targetMonster->getPosition();
+	bang->setPosition(ccp(monsterPoint.x,monsterPoint.y+40));
+	getParent()->addChild(bang);
+	bullet->getParent()->removeChild(bullet);
 }
-
+//加载子弹的动画和碰到怪物后爆照效果动画
 void BottleTower::initTower(){
 	bulletName = CCString::createWithFormat("PBottle%d",towerLevel)->getCString();
 	animateManager->createAnimation(bulletName.c_str(),"PBottle",towerLevel*10+1,towerLevel*10+3,8);
+	animateManager->createAnimation("bangAnimate","PBottle",1,2,8);
 }

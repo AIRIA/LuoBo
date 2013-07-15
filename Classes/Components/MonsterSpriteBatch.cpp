@@ -39,6 +39,7 @@ void MonsterSpriteBatch::freshMonster(float dt){
 			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
 			air->setAnchorPoint(ccp(0.5,0.25));
 			air->setPosition(monsterSpr->getPosition());
+			ShareManager::getInstance()->cloudBatchNode->addChild(air);
 			ShareManager::getInstance()->monsters->fastRemoveObject(monsterSpr);
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->carrot->showHP();

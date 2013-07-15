@@ -77,7 +77,7 @@ BaseTower* TowerManager::createSelectTower(const char* towerType){
 			btsbn->addChild(base);
 			btsbn->addChild(tower);
 			tower->setTouchPriority(-130);
-			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air01.png","air_carrot");
+			CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air11.png","air_tower");
 			ShareManager::getInstance()->cloudBatchNode->addChild(air);
 			air->setPosition(towerPoint);
 		}

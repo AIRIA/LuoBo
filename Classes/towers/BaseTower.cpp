@@ -12,6 +12,7 @@ void BaseTower::findMonster(){
 	CCARRAY_FOREACH(monsters,obj){
 		Monster* monster = (Monster*)obj;
 		CCPoint monsterPos = monster->getPosition();
+		monsterPos = ccp(monsterPos.x,monsterPos.y+40);
 		float distance = ccpDistance(monsterPos,pos);
 		CCPoint vectorPoint = ccpSub(monsterPos,pos);
 		if(distance<=attackDistance){

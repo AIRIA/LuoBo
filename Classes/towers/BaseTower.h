@@ -4,6 +4,7 @@
 #include "../Components/GiantSprite.h"
 #include "../manager/AnimateManager.h"
 #include "../Model/Monster.h"
+#include "../Components/MonsterBlood.h"
 
 using namespace std;
 
@@ -71,11 +72,13 @@ public:
 	CCAnimationCache* animateCache;
 	CCSpriteFrameCache* frameCache;
 	AnimateManager* animateManager;
+	ShareManager* shareManager;
 public:
 	BaseTower():attackDistance(160),isFinded(false),towerLevel(1),targetMonster(NULL){
 		animateCache = CCAnimationCache::sharedAnimationCache();
 		frameCache = CCSpriteFrameCache::sharedSpriteFrameCache();
 		animateManager = AnimateManager::shareAnimateManager();
+		shareManager = ShareManager::getInstance();
 	};
 	virtual void attack();
 	virtual void findMonster();

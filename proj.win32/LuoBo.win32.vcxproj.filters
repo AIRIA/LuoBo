@@ -151,6 +151,12 @@
     <ClInclude Include="..\Classes\towers\RoketTower.h">
       <Filter>include\towers</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Components\MonsterBlood.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Components\MonsterHPSpriteBatch.h">
+      <Filter>include\components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -257,6 +263,12 @@
     </ClCompile>
     <ClCompile Include="..\Classes\towers\RoketTower.cpp">
       <Filter>include\towers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\MonsterBlood.cpp">
+      <Filter>include\components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Components\MonsterHPSpriteBatch.cpp">
+      <Filter>include\components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

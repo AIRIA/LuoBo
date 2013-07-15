@@ -28,6 +28,8 @@ public:
 	CCSpriteBatchNode* cloudBatchNode;
 	//子弹BatchNode
 	CCSpriteBatchNode* bulletBatchNode;
+	//血条层
+	CCSpriteBatchNode* bloodSpriteNode;
 	//炮塔层
 	TowerLayer* towerLayer;
 	Carrot* carrot;

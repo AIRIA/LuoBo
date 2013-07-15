@@ -8,11 +8,12 @@ class Monster:public CCSprite{
 public:
 	int currentPointIdx;
 	int nextPointIdx;
-	
+	bool isShowHP;
 public:
 	
 	CCSprite* monsterSpr;
 	virtual bool init();
+	Monster():isShowHP(false){};
 	static void createWithMonsterName(const char* initFrame,const char* monsterName);
 };
 

@@ -132,7 +132,9 @@
     <ClInclude Include="..\Classes\Components\GiantPageScrollView.h" />
     <ClInclude Include="..\Classes\Components\GiantSprite.h" />
     <ClInclude Include="..\Classes\Components\MapMenu.h" />
+    <ClInclude Include="..\Classes\Components\MonsterBlood.h" />
     <ClInclude Include="..\Classes\Components\MonsterBornArrow.h" />
+    <ClInclude Include="..\Classes\Components\MonsterHPSpriteBatch.h" />
     <ClInclude Include="..\Classes\Components\MonsterSpriteBatch.h" />
     <ClInclude Include="..\Classes\Components\TowerLayer.h" />
     <ClInclude Include="..\Classes\Components\TowerMenuItemSprite.h" />
@@ -170,7 +172,9 @@
     <ClCompile Include="..\Classes\Components\GiantPageScrollView.cpp" />
     <ClCompile Include="..\Classes\Components\GiantSprite.cpp" />
     <ClCompile Include="..\Classes\Components\MapMenu.cpp" />
+    <ClCompile Include="..\Classes\Components\MonsterBlood.cpp" />
     <ClCompile Include="..\Classes\Components\MonsterBornArrow.cpp" />
+    <ClCompile Include="..\Classes\Components\MonsterHPSpriteBatch.cpp" />
     <ClCompile Include="..\Classes\Components\MonsterSpriteBatch.cpp" />
     <ClCompile Include="..\Classes\Components\TowerLayer.cpp" />
     <ClCompile Include="..\Classes\Components\TowerMenuItemSprite.cpp" />

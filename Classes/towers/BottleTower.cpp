@@ -41,6 +41,12 @@ void BottleTower::bulletSchedule(float dt){
 }
 
 void BottleTower::bangEffect(){
+	if(!targetMonster->isShowHP){
+		MonsterBlood* mb = MonsterBlood::createMonsterBlood();
+		mb->monster = targetMonster;
+		shareManager->bloodSpriteNode->addChild(mb);
+	}
+
 	CCSprite* bang = animateManager->createAnimate_RunOnce("PBottle01.png","bangAnimate");
 	CCPoint monsterPoint = targetMonster->getPosition();
 	bang->setPosition(ccp(monsterPoint.x,monsterPoint.y+40));

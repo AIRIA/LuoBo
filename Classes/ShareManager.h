@@ -15,12 +15,13 @@ protected:
 	CCArray* towerInfo;
 	
 public:
+	float moveSpeed;
 	bool isTower;
 	//当前主题ID
 	int currentThemeId;
 	//当前地图ID
 	int mapId;
-	ShareManager():currentThemeId(1),mapId(1),isTower(false){};
+	ShareManager():currentThemeId(1),mapId(1),isTower(false),moveSpeed(1.2f){};
 	static ShareManager* getInstance();
 	//怪物所在的BatchNode
 	MonsterSpriteBatch* monsterBatchNode;

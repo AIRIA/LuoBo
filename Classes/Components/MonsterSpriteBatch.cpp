@@ -12,7 +12,7 @@ MonsterSpriteBatch* MonsterSpriteBatch::createBatchNodeWithTexture(CCTexture2D* 
 	return msb;
 }
 
-#define MOVE_SPEED 1
+#define MOVE_SPEED ShareManager::getInstance()->moveSpeed
 
 void MonsterSpriteBatch::removeAirCarrot(CCNode* pSender){
 	pSender->getParent()->removeChild(pSender);
@@ -41,6 +41,7 @@ void MonsterSpriteBatch::freshMonster(float dt){
 			air->setPosition(monsterSpr->getPosition());
 			ShareManager::getInstance()->cloudBatchNode->addChild(air);
 			ShareManager::getInstance()->monsters->fastRemoveObject(monsterSpr);
+
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->carrot->showHP();
 			continue;

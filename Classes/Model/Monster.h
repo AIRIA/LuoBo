@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "../ShareManager.h"
+
 USING_NS_CC;
 class Monster:public CCSprite{
 public:

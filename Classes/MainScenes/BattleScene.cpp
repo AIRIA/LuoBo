@@ -200,7 +200,15 @@ void BattleScene::setTowerLayer(){
 }
 
 void BattleScene::cutSpeed(CCObject* pSender){
-
+	CCScheduler* timeSchedule = CCDirector::sharedDirector()->getScheduler();
+	CCMenuItemToggle* speedCut = (CCMenuItemToggle*)pSender;
+	if(speedCut->getSelectedIndex()==0){
+		timeSchedule->setTimeScale(1);
+		ShareManager::getInstance()->moveSpeed /= 2;
+	}else{
+		timeSchedule->setTimeScale(2);
+		ShareManager::getInstance()->moveSpeed *= 2;
+	}
 }
 
 void BattleScene::loadMap(){

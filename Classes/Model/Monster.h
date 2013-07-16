@@ -10,11 +10,12 @@ public:
 	int currentPointIdx;
 	int nextPointIdx;
 	bool isShowHP;
+	float hp;
 public:
 	
 	CCSprite* monsterSpr;
 	virtual bool init();
-	Monster():isShowHP(false){};
+	Monster():isShowHP(false),hp(100){};
 	static void createWithMonsterName(const char* initFrame,const char* monsterName);
 };
 

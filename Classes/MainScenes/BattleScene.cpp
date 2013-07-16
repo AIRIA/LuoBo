@@ -332,6 +332,7 @@ void BattleScene::loadMap(){
 //open game menu contains resume restart and quit
 void BattleScene::openGameMenu(CCObject* pSender){
 	MapMenu* mm = MapMenu::create();
+	
 	addChild(mm);
 }
 #define MONSTER_FPS 4
@@ -367,6 +368,8 @@ void BattleScene::initBatchNodeLayers(){
 	sm->bloodSpriteNode = CCSpriteBatchNode::createWithTexture(frameCache->spriteFrameByName("MonsterHP01.png")->getTexture());
 	addChild(battleLayer);
 	addChild(sm->monsterBatchNode);
+	ccBlendFunc bf = {GL_ONE, GL_ONE_MINUS_SRC_ALPHA};
+	sm->bloodSpriteNode->setBlendFunc(bf);
 	addChild(sm->bloodSpriteNode);
 	addChild(sm->cloudBatchNode);
 	addChild(sm->towerLayer);

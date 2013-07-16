@@ -10,6 +10,7 @@ public:
 	virtual bool init();
 	virtual void registerWithTouchDispatcher();
 	virtual bool ccTouchBegan(CCTouch* touch,CCEvent* event);
+	virtual void resumeGame(CCObject* pSender);
 };
 
 #endif

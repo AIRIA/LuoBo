@@ -34,6 +34,7 @@ void BottleTower::creatBullte(CCNode* node){
 	bullet->setPosition(ccp(x,y));
 	bullet->runAction(shoot);
 	getParent()->addChild(bullet,-1);
+	targetMonster->hp -= atk;
 }
 
 void BottleTower::bulletSchedule(float dt){
@@ -44,6 +45,7 @@ void BottleTower::bangEffect(){
 	if(!targetMonster->isShowHP){
 		MonsterBlood* mb = MonsterBlood::createMonsterBlood();
 		mb->monster = targetMonster;
+		mb->monster->retain();
 		shareManager->bloodSpriteNode->addChild(mb);
 	}
 

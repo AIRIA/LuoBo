@@ -28,6 +28,7 @@ bool MapMenu::init(){
 			SceneManager::shareSceneManager(),menu_selector(SceneManager::toSubThemeScene));
 		CCMenuItemSprite* restart = CCMenuItemSprite::create(SPRITE(menu_restart_normal_CN.png),SPRITE(menu_restart_pressed_CN.png));
 		CCMenuItemSprite* resume = CCMenuItemSprite::create(SPRITE(menu_resume_normal_CN.png),SPRITE(menu_resume_pressed_CN.png));
+		resume->setTarget(this,menu_selector(MapMenu::resumeGame));
 		CCMenu* gameMenu = CCMenu::create(resume,restart,quit,NULL);
 		gameMenu->alignItemsVerticallyWithPadding(15);
 		gameMenu->setPosition(ccp(VisibleRect::center().x,VisibleRect::center().y+2));
@@ -53,4 +54,8 @@ bool MapMenu::init(){
 		
 	}while(0);
 	return true;
+}
+
+void MapMenu::resumeGame(CCObject* pSender){
+	//CCDirector::sharedDirector()->getScheduler()->resumeTargets();
 }

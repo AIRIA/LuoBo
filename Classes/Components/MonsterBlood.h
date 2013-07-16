@@ -9,6 +9,7 @@ public:
 	Monster* monster;
 	static MonsterBlood* createMonsterBlood();
 	virtual void update(float dt);
+	CCSprite* bg;
 };
 
 #endif

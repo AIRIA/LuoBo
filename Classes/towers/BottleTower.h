@@ -5,6 +5,9 @@
 
 class BottleTower:public BaseTower{
 public:
+	BottleTower(){
+		BaseTower::atk = 13;
+	};
 	virtual void fire(float dt=0);
 	CREATE_TOWER(BottleTower);
 	virtual void creatBullte(CCNode* node);

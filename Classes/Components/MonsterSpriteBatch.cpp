@@ -41,7 +41,6 @@ void MonsterSpriteBatch::freshMonster(float dt){
 			air->setPosition(monsterSpr->getPosition());
 			ShareManager::getInstance()->cloudBatchNode->addChild(air);
 			ShareManager::getInstance()->monsters->fastRemoveObject(monsterSpr);
-
 			monsterSpr->getParent()->removeChild(monsterSpr);
 			sm->carrot->showHP();
 			continue;

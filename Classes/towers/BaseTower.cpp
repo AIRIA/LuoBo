@@ -8,7 +8,11 @@
 void BaseTower::findMonster(){
 	CCObject* obj = NULL;
 	CCArray* monsters = ShareManager::getInstance()->monsters;
+	int monsterNum = monsters->count();
 	CCPoint pos = getPosition();
+	if(monsterNum==0){
+		isFinded = false;
+	}
 	CCARRAY_FOREACH(monsters,obj){
 		Monster* monster = (Monster*)obj;
 		CCPoint monsterPos = monster->getPosition();

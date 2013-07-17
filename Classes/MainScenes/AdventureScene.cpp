@@ -14,12 +14,10 @@ void AdventureScene::showNextTheme(CCObject* pSender){
 	int idx = pageScroll->getCurrentIdx();
 	int cellNum = pageScroll->cellNum;
 	int nextIdx = idx+1;
-	if(nextIdx==cellNum){
-		rightArrow->setEnabled(false);
-	}else if(rightArrow->isEnabled()==false){
-		rightArrow->setEnabled(true);
+	if(nextIdx<cellNum){
+		pageScroll->showCellByInx(nextIdx);
 	}
-	pageScroll->showCellByInx(nextIdx);
+	
 }
 
 void AdventureScene::showPrevTheme(CCObject* pSender){
@@ -27,12 +25,10 @@ void AdventureScene::showPrevTheme(CCObject* pSender){
 	int idx = pageScroll->getCurrentIdx();
 	int cellNum = pageScroll->cellNum;
 	int prevIdx = idx-1;
-	if(prevIdx==0){
-		leftArrow->setEnabled(false);
-	}else if(leftArrow->isEnabled()==false){
-		leftArrow->setEnabled(true);
+	if(prevIdx>=0){
+		pageScroll->showCellByInx(prevIdx);
 	}
-	pageScroll->showCellByInx(prevIdx);
+	
 }
 
 bool AdventureScene::init(){

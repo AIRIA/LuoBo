@@ -62,8 +62,10 @@ void GiantPageScrollView::ccTouchEnded(CCTouch* touch,CCEvent* event){
 	if(abs(moveX)>50){
 		if(moveX>0){
 			offset.x = -960*(idx+1);
+			currentIdx = idx+1;
 		}else{
 			offset.x = -960*(idx);
+			currentIdx = idx;
 		}
 	}else{
 		tv->setContentOffset(touchOffset,true);

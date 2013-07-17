@@ -47,13 +47,18 @@ void BottleTower::bangEffect(){
 		mb->monster = targetMonster;
 		mb->monster->retain();
 		shareManager->bloodSpriteNode->addChild(mb);
+		targetMonster->retain();
 	}
-
-	CCSprite* bang = animateManager->createAnimate_RunOnce("PBottle01.png","bangAnimate");
-	CCPoint monsterPoint = targetMonster->getPosition();
-	bang->setPosition(ccp(monsterPoint.x,monsterPoint.y+40));
-	getParent()->addChild(bang);
+	if(targetMonster->hp>0){
+		CCSprite* bang = animateManager->createAnimate_RunOnce("PBottle01.png","bangAnimate");
+		CCPoint monsterPoint = targetMonster->getPosition();
+		bang->setPosition(ccp(monsterPoint.x,monsterPoint.y+40));
+		getParent()->addChild(bang);
+	}else{
+		targetMonster->release();
+	}
 	bullet->getParent()->removeChild(bullet);
+	
 }
 //加载子弹的动画和碰到怪物后爆照效果动画
 void BottleTower::initTower(){

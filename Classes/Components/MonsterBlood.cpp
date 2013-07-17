@@ -26,7 +26,11 @@ void MonsterBlood::update(float dt){
 		CCPoint monsterPos = monster->getPosition();
 		setPosition(ccp(monsterPos.x,monsterPos.y+100));
 	}else{
+		CCSprite* air = AnimateManager::shareAnimateManager()->createAnimate_RunOnce("air21.png","air_monster");
+		air->setPosition(monster->getPosition());
 		getParent()->removeChild(this);
+		ShareManager::getInstance()->monsters->fastRemoveObject(monster);
 		monster->release();
+		ShareManager::getInstance()->cloudBatchNode->addChild(air);
 	}
 }

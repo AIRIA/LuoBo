@@ -11,6 +11,8 @@
 
 using namespace std;
 
+#define CREATE_ANIMATE(name,pre,start,end,fps) \
+	AnimateManager::shareAnimateManager()->createAnimation(#name,#pre,start,end,fps)
 
 void BattleScene::countDown(CCObject* pSender,void* sprname){
 	char* sprName = (char*)sprname;
@@ -204,10 +206,10 @@ void BattleScene::cutSpeed(CCObject* pSender){
 	CCMenuItemToggle* speedCut = (CCMenuItemToggle*)pSender;
 	if(speedCut->getSelectedIndex()==0){
 		timeSchedule->setTimeScale(1);
-		ShareManager::getInstance()->moveSpeed /= 2;
+		ShareManager::getInstance()->moveSpeed /= 1.5;
 	}else{
-		timeSchedule->setTimeScale(2);
-		ShareManager::getInstance()->moveSpeed *= 2;
+		timeSchedule->setTimeScale(1.5);
+		ShareManager::getInstance()->moveSpeed *= 1.5;
 	}
 }
 
@@ -339,22 +341,24 @@ void BattleScene::openGameMenu(CCObject* pSender){
 
 //initial animations
 void BattleScene::initAnimations(){
-	AnimateManager::shareAnimateManager()->createAnimation("air_carrot","air",1,5,10);
-	AnimateManager::shareAnimateManager()->createAnimation("air_tower","air",11,15,10);
-	AnimateManager::shareAnimateManager()->createAnimation("addTower","select_",1,4,8);
-	AnimateManager::shareAnimateManager()->createAnimation("boss_big","boss_big",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fat_boss_green","fat_boss_green",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fat_green","fat_green",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fly_blue","fly_blue",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fly_boss_blue","fly_boss_blue",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fly_boss_yellow","fly_boss_yellow",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("fly_yellow","fly_yellow",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_boss_nima","land_boss_nima",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_boss_pink","land_boss_pink",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_boss_star","land_boss_star",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_nima","land_nima",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_pink","land_pink",1,2,MONSTER_FPS);
-	AnimateManager::shareAnimateManager()->createAnimation("land_star","land_star",1,2,MONSTER_FPS);
+	CREATE_ANIMATE(air_monster,air,11,15,10);
+	CREATE_ANIMATE(air_carrot,air,21,25,10);
+	CREATE_ANIMATE(air_tower,air,11,15,10);
+	CREATE_ANIMATE(air_tower,air,11,15,10);
+	CREATE_ANIMATE(addTower,select_,1,4,8);
+	CREATE_ANIMATE(boss_big,boss_big,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fat_boss_green,fat_boss_green,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fat_green,fat_green,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fly_blue,fly_blue,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fly_boss_blue,fly_boss_blue,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fly_boss_yellow,fly_boss_yellow,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(fly_yellow,fly_yellow,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_boss_nima,land_boss_nima,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_boss_pink,land_boss_pink,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_boss_star,land_boss_star,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_nima,land_nima,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_pink,land_pink,1,2,MONSTER_FPS);
+	CREATE_ANIMATE(land_star,land_star,1,2,MONSTER_FPS);
 	
 }
 

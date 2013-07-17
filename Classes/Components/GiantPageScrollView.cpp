@@ -97,7 +97,6 @@ CCTableViewCell* GiantPageScrollView::tableCellAtIndex(CCTableView* table,unsign
 		cell = new CCTableViewCell();
 		cell->autorelease();
 		cell->addChild(node);
-		
 	}else{
 		cell->removeAllChildren();
 		cell->addChild(node);
